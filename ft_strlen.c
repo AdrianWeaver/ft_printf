@@ -1,22 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_putstr.c                                 :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aweaver <aweaver@student.42.fr>            +#+  +:+       +#+        */
+/*   By: aweaver <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/18 12:31:51 by aweaver           #+#    #+#             */
-/*   Updated: 2022/01/03 13:46:20 by aweaver          ###   ########.fr       */
+/*   Created: 2022/01/03 13:46:28 by aweaver           #+#    #+#             */
+/*   Updated: 2022/01/03 13:47:08 by aweaver          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
-
-int	ft_printf_putstr(char *str)
+int	ft_strlen(char *str)
 {
-	int	ret;
+	int	i;
 
-	ret = ft_strlen(str);
-	write(1, str, ret);
-	return (ret);
+	i = 0;
+	while (str[i])
+		i++;
+	return (i);
 }

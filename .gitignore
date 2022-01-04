@@ -1,0 +1,6 @@
+a.out
+*swo
+*swp
+*pdf
+*.o
+libftprintf.a

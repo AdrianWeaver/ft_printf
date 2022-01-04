@@ -1,7 +1,10 @@
 NAME			=	libftprintf.a
 
 SRCS			=	ft_printf.c				\
-					ft_printf_putchar.c		
+					ft_printf_putchar.c		\
+					ft_strlen.c				\
+					ft_printf_putstr.c		\
+					ft_printf_putnbr.c
 
 OBJS			=	$(SRCS:.c=.o)
 
@@ -25,4 +28,7 @@ fclean:			clean
 				
 re:				fclean all
 
-.PHONY:			all re clean fclean
+test:			fclean all
+				$(CC) main.c $(NAME) && ./a.out
+
+.PHONY:			all re clean fclean test

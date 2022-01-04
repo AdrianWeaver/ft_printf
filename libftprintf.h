@@ -6,7 +6,7 @@
 /*   By: aweaver <aweaver@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/18 10:10:48 by aweaver           #+#    #+#             */
-/*   Updated: 2021/12/19 09:09:09 by aweaver          ###   ########.fr       */
+/*   Updated: 2022/01/04 23:18:22 by aweaver          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,17 @@ int	ft_printf_putchar(char c);
 #  define FT_PRINTF_PUTSTR
 
 int	ft_printf_putstr(char *str);
-
 # endif
 
+# ifndef FT_STRLEN
+#  define FT_STRLEN
+
+int	ft_strlen(char *str);
+# endif
+
+# ifndef FT_PRINTF_PUTNBR
+#  define FT_PRINTF_PUTNBR
+
+int	ft_printf_putnbr(int nbr);
+# endif
 #endif
