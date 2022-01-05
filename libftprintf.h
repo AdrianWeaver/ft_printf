@@ -6,7 +6,7 @@
 /*   By: aweaver <aweaver@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/18 10:10:48 by aweaver           #+#    #+#             */
-/*   Updated: 2022/01/04 23:18:22 by aweaver          ###   ########.fr       */
+/*   Updated: 2022/01/05 10:05:45 by aweaver          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <stdarg.h>
+# include <stdint.h>
 
 # if defined (__APPLE__)
 #  define PTR_NULL "0x0"
@@ -50,5 +51,11 @@ int	ft_strlen(char *str);
 #  define FT_PRINTF_PUTNBR
 
 int	ft_printf_putnbr(int nbr);
+# endif
+
+# ifndef FT_PRINTF_HEX
+#  define FT_PRINTF_HEX
+
+int	ft_printf_hex(int64_t nbr, int64_t base, int addr_flag);
 # endif
 #endif

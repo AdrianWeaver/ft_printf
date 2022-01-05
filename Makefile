@@ -4,7 +4,8 @@ SRCS			=	ft_printf.c				\
 					ft_printf_putchar.c		\
 					ft_strlen.c				\
 					ft_printf_putstr.c		\
-					ft_printf_putnbr.c
+					ft_printf_putnbr.c		\
+					ft_printf_hex.c
 
 OBJS			=	$(SRCS:.c=.o)
 
@@ -28,7 +29,7 @@ fclean:			clean
 				
 re:				fclean all
 
-test:			fclean all
+test:			re
 				$(CC) main.c $(NAME) && ./a.out
 
 .PHONY:			all re clean fclean test
