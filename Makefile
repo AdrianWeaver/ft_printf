@@ -5,7 +5,8 @@ SRCS			=	ft_printf.c				\
 					ft_strlen.c				\
 					ft_printf_putstr.c		\
 					ft_printf_putnbr.c		\
-					ft_printf_hex.c
+					ft_printf_hex.c			\
+					ft_printf_uhex.c
 
 OBJS			=	$(SRCS:.c=.o)
 

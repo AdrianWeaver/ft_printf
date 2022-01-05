@@ -1,19 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_hex.c                                    :+:      :+:    :+:   */
+/*   ft_printf_uhex.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aweaver <aweaver@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/05 07:35:54 by aweaver           #+#    #+#             */
-/*   Updated: 2022/01/05 11:52:53 by aweaver          ###   ########.fr       */
+/*   Created: 2022/01/05 15:01:27 by aweaver           #+#    #+#             */
+/*   Updated: 2022/01/05 15:53:37 by aweaver          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 #include <stdint.h>
+#include <limits.h>
 
-int	ft_printf_hex(int64_t nbr, int64_t base, int addr_flag)
+int	ft_printf_uhex(unsigned long int nbr, unsigned long int base, int addr_flag, int caps)
 {
 	int		ret;
 
@@ -27,16 +28,13 @@ int	ft_printf_hex(int64_t nbr, int64_t base, int addr_flag)
 		}
 		ret += ft_printf_putstr("0x");
 	}
-	if (nbr < 0)
-	{
-		ret += ft_printf_putchar('-');
-		nbr = -nbr;
-	}
+	while (nbr > 4294967295 && addr_flag == 2)
+		nbr = nbr % 4294967295;
 	ret++;
 	if (nbr / base > 0)
-		ret += ft_printf_hex(nbr / base, base, 0);
+		ret += ft_printf_uhex(nbr / base, base, 0, caps);
 	if (nbr % base > 9 && nbr % base <= base)
-		ft_printf_putchar((nbr % base) - 10 + 'a');
+		ft_printf_putchar((nbr % base) + caps);
 	else
 		ft_printf_putchar(nbr % base + '0');
 	return (ret);

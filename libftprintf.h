@@ -6,7 +6,7 @@
 /*   By: aweaver <aweaver@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/18 10:10:48 by aweaver           #+#    #+#             */
-/*   Updated: 2022/01/05 10:05:45 by aweaver          ###   ########.fr       */
+/*   Updated: 2022/01/05 16:04:18 by aweaver          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	ft_printf(const char *str, ...);
 # ifndef FT_PRINTF_PUTCHAR
 #  define FT_PRINTF_PUTCHAR
 
-int	ft_printf_putchar(char c);
+int	ft_printf_putchar(unsigned char c);
 # endif
 # ifndef FT_PRINTF_PUTSTR
 #  define FT_PRINTF_PUTSTR
@@ -53,9 +53,16 @@ int	ft_strlen(char *str);
 int	ft_printf_putnbr(int nbr);
 # endif
 
-# ifndef FT_PRINTF_HEX
-#  define FT_PRINTF_HEX
+# ifndef FT_PRINTF_PUTNBR_BASE
+#  define FT_PRINTF_PUTNBR_BASE
 
-int	ft_printf_hex(int64_t nbr, int64_t base, int addr_flag);
+int	ft_printf_putnbr_base(int64_t nbr, int64_t base, int caps);
+# endif
+
+# ifndef FT_PRINTF_UHEX
+#  define FT_PRINTF_UHEX
+
+int	ft_printf_uhex(unsigned long int nbr, unsigned long int base,
+		int addr_flag, int caps);
 # endif
 #endif
