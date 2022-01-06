@@ -1,38 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_uhex.c                                   :+:      :+:    :+:   */
+/*   ft_printf_putnbr_base.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aweaver <aweaver@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/05 15:01:27 by aweaver           #+#    #+#             */
-/*   Updated: 2022/01/05 15:53:37 by aweaver          ###   ########.fr       */
+/*   Created: 2022/01/05 19:37:50 by aweaver           #+#    #+#             */
+/*   Updated: 2022/01/05 19:37:51 by aweaver          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 #include <stdint.h>
-#include <limits.h>
 
-int	ft_printf_uhex(unsigned long int nbr, unsigned long int base, int addr_flag, int caps)
+int	ft_printf_putnbr_base(int64_t nbr, int64_t base, int caps)
 {
 	int		ret;
 
 	ret = 0;
-	if (addr_flag == 1)
+	if (caps == 1)
+		caps = 55;
+	else
+		caps = 77;
+	if (nbr < 0)
 	{
-		if (nbr == 0)
-		{
-			ret += ft_printf_putstr(PTR_NULL);
-			return (ret);
-		}
-		ret += ft_printf_putstr("0x");
+		ret += ft_printf_putchar('-');
+		nbr = -nbr;
 	}
-	while (nbr > 4294967295 && addr_flag == 2)
-		nbr = nbr % 4294967295;
 	ret++;
 	if (nbr / base > 0)
-		ret += ft_printf_uhex(nbr / base, base, 0, caps);
+		ret += ft_printf_putnbr_base(nbr / base, base, caps);
 	if (nbr % base > 9 && nbr % base <= base)
 		ft_printf_putchar((nbr % base) + caps);
 	else

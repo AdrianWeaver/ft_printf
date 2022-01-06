@@ -6,7 +6,7 @@
 /*   By: aweaver <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 11:12:07 by aweaver           #+#    #+#             */
-/*   Updated: 2022/01/05 15:47:40 by aweaver          ###   ########.fr       */
+/*   Updated: 2022/01/06 10:28:11 by aweaver          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,19 +35,20 @@ int	main(void)
 	if (addr == 0)
 		return (0);
 	str = "je suis un string";
-	printf("vrai printf %%c, %c %c %c \n", '0', 0, '1');
-	ft_printf("vrai printf %%c, %c %c %c \n", '0', 0, '1');
-	printf("NULL vrai printf %%s, %s\n", str);
-	printf("faux printf %%s, %s\n", str);
+	//printf("vrai printf %%c, %c %c %c \n", '0', 0, '1');
+	//ft_printf("vrai printf %%c, %c %c %c \n", '0', 0, '1');
+	//printf("NULL vrai printf %%s, %s\n", str);
+	//printf("faux printf %%s, %s\n", str);
 	printf("vrai printf %%i: %i\n", number);
 	ft_printf("faux printf %%i: %i\n", number);
 	printf("vrai printf %%u: %u\n", 4294967296);
 	ft_printf("faux printf %%u: %u\n", 4294967296);
-	total += ft_printf("vrai printf %%p: %p\nvrai printf %%p: %p\n", ULONG_MAX, -ULONG_MAX);
-	printf ("total : %d\n", total);
-	total = 0;
-	total += ft_printf("faux printf %%p: %p\nvrai printf %%p: %p\n",  ULONG_MAX, -ULONG_MAX);
-	printf ("total : %d\n", total);
+	//total += ft_printf("vrai printf %%p: %p\nvrai printf %%p: %p\n", ULONG_MAX, -ULONG_MAX);
+	//printf ("total : %d\n", total);
+	//total = 0;
+	//total += ft_printf("faux printf %%p: %p\nvrai printf %%p: %p\n",  ULONG_MAX, -ULONG_MAX);
+	//printf ("total : %d\n", total);
 	printf("vrai printf %%x, %x\n", -101);
 	ft_printf("faux printf %%x: %x\n", -101);
+	//ft_printf("faux printf %%x, %x\n", -101);
 }

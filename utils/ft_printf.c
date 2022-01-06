@@ -6,12 +6,11 @@
 /*   By: aweaver <aweaver@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/18 10:02:21 by aweaver           #+#    #+#             */
-/*   Updated: 2022/01/05 16:03:07 by aweaver          ###   ########.fr       */
+/*   Updated: 2022/01/06 10:28:33 by aweaver          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
-#include <stdio.h>
 #include <stdarg.h>
 
 int	ft_str_parse(char str, va_list params)
