@@ -6,7 +6,7 @@
 /*   By: aweaver <aweaver@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 08:43:19 by aweaver           #+#    #+#             */
-/*   Updated: 2022/01/18 08:51:55 by aweaver          ###   ########.fr       */
+/*   Updated: 2022/01/18 16:10:40 by aweaver          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,12 @@ void	ft_printf_c(int c, t_list_printf *list)
 		padding = list->width;
 	ft_putchar_fd(c, 1);
 	list->ret++;
-	while (padding != 0)
+	list->i++;
+	padding--;
+	while (padding > 0)
 	{
 		ft_putchar_fd(' ', 1);
 		list->ret++;
+		padding--;
 	}
 }

@@ -6,13 +6,12 @@
 /*   By: aweaver <aweaver@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/14 11:25:07 by aweaver           #+#    #+#             */
-/*   Updated: 2022/01/14 17:17:08 by aweaver          ###   ########.fr       */
+/*   Updated: 2022/01/18 16:12:50 by aweaver          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 #include "libft.h"
-#include <stdio.h>
 
 void	ft_printf_parseloop(const char *str, t_list_printf *list)
 {
