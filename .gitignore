@@ -1,3 +1,4 @@
+objects/
 a.out
 *swo
 *swp
@@ -7,3 +8,4 @@ libftprintf.a
 pft/
 pft*/
 main*
+*a
