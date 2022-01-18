@@ -6,7 +6,7 @@
 /*   By: aweaver <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/25 11:10:46 by aweaver           #+#    #+#             */
-/*   Updated: 2022/01/14 20:23:30 by aweaver          ###   ########.fr       */
+/*   Updated: 2022/01/18 09:49:17 by aweaver          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -237,6 +237,31 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char*));
 
 # endif
 
+# ifndef FT_PUTNBR
+#  define FT_PUTNBR
+
+int		ft_putnbr(int n);
+
+# endif
+# ifndef FT_PUTENDL
+#  define FT_PUTENDL
+
+int		ft_putendl(char *s);
+
+# endif
+# ifndef FT_PUTSTR
+#  define FT_PUTSTR
+
+int		ft_putstr(char *s);
+
+# endif
+# ifndef FT_PUTCHAR
+#  define FT_PUTCHAR
+
+int		ft_putchar(char c);
+
+# endif
+
 # ifndef FT_PUTCHAR_FD_H
 #  define FT_PUTCHAR_FD_H
 
@@ -333,5 +358,4 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 
 int		ft_count_digits(long int nb);
 # endif
-
 #endif
