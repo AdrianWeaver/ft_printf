@@ -8,5 +8,5 @@ libftprintf.a
 pft/
 pft*/
 main*
-*a
-libft/*a
+*.a
+*.d
