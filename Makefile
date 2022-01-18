@@ -26,7 +26,7 @@ DEPS			=	$(OBJS:.o=.d)
 
 all:			$(NAME)
 
-$(NAME):		$(OBJS) $(LIBFT)
+$(NAME):		$(LIBFT) $(OBJS)
 				ar -rcs $(NAME) $^
 
 $(LIBFT):		
@@ -47,7 +47,7 @@ fclean:			clean
 re:				fclean all
 
 test:			re
-				$(CC) main.c $(NAME) -I $(INC) && ./a.out
+				$(CC) main.c $(NAME) $(INC) && ./a.out
 
 -include $(DEPS)
 

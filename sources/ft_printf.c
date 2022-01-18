@@ -6,12 +6,12 @@
 /*   By: aweaver <aweaver@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/18 10:02:21 by aweaver           #+#    #+#             */
-/*   Updated: 2022/01/18 13:27:27 by aweaver          ###   ########.fr       */
+/*   Updated: 2022/01/18 15:45:06 by aweaver          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
 #include "libft.h"
+#include "libftprintf.h"
 #include <stdarg.h>
 
 int	ft_printf_conversion(const char *str, t_list_printf *list, va_list params)
