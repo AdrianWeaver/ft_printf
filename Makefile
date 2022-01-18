@@ -1,37 +1,25 @@
-NAME			=	libftprintf.a
+NAME				=	libftprintf.a
 
-SRCS_PATH		=	./sources/
+SRCS_PATH			=	./sources/
 
-LIBFT_PATH		=	./libft/
+OBJS_PATH			=	./objects/
 
-LIBFT			=	$(addprefix $(LIBFT_PATH),libft.a)
+LIBFT_PATH			=	./libft/
 
-SRCS			=	$(addprefix $(SRCS_PATH),	\
-					ft_lstreset.c				\
-					ft_printf_c.c				\
-					ft_printf_parse.c			\
-					ft_printf.c)
+LIBFT				=	$(addprefix $(LIBFT_PATH),libft.a)
 
-#SRCS_BONUS		=	$(addprefix $(SRCS_PATH),ft_printf_bonus.c				\
-					#ft_printf_putchar_bonus.c		\
-					#ft_strlen_bonus.c				\
-					#ft_printf_putstr_bonus.c		\
-					#ft_printf_putnbr_bonus.c		\
-					#ft_printf_putnbr_base_bonus.c	\
-					#ft_printf_uhex_bonus.c)
+SRCS				=	ft_lstreset.c				\
+						ft_printf_c.c				\
+						ft_printf_parse.c			\
+						ft_printf.c
 
-OBJS			=	$(SRCS:.c=.o)
-
-OBJS_BONUS		=	$(SRCS_BONUS:.c=.o)
-
-DEPS			=	$(SRCS:.c=.d)					\
-					$(SRCS_BONUS:.c=.d)
+OBJS			=	$(addprefix $(OBJS_PATH),$(SRCS:.c=.o))
 
 CC				=	gcc
 
-CFLAGS			=	-MMD -Wall -Wextra -Werror
+CFLAGS			=	-MMD -Wall -Wextra -Werror $(INC)
 
-INC				=	-I ./includes
+INC				=	-I ./includes				\
 					-I ./libft
 
 all:			$(NAME)
@@ -42,8 +30,9 @@ $(NAME):		$(OBJS) $(LIBFT)
 $(LIBFT):		
 				$(MAKE) -C $(LIBFT_PATH) all
 
-%.o:			%.c
-				$(CC) $(CFLAGS) -c $< -o $@ $(INC)
+$(OBJS_PATH)%.o:			$(SRCS_PATH)%.c
+				@mkdir -p $(OBJS_PATH)
+				$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
 				rm -f $(OBJS) $(OBJS_BONUS) $(DEPS)
@@ -55,17 +44,7 @@ fclean:			clean
 				
 re:				fclean all
 
-re_bonus:		fclean bonus
-
-
-bonus:			$(OBJS) $(OBJS_BONUS)
-				ar -rcs $(NAME) $^
-
 test:			re
 				$(CC) main.c $(NAME) -I $(INC) && ./a.out
 
-test_b:			re_bonus
-				$(CC) main_bonus.c $(NAME_BONUS) -I $(INC) && ./a.out
-
--include $(DEPS)
 .PHONY:			all re clean fclean test
