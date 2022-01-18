@@ -6,7 +6,7 @@
 /*   By: aweaver <aweaver@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/18 10:10:48 by aweaver           #+#    #+#             */
-/*   Updated: 2022/01/14 18:43:00 by aweaver          ###   ########.fr       */
+/*   Updated: 2022/01/18 08:55:16 by aweaver          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,15 +49,15 @@ typedef struct s_list_printf
 int				ft_printf(const char *str, ...);
 # endif
 
-# ifndef FT_PRINTF_PUTCHAR
-#  define FT_PRINTF_PUTCHAR
+# ifndef FT_PRINTF_C
+#  define FT_PRINTF_C
 
-void			ft_printf_putchar(unsigned char c, t_list_printf *list);
+void			ft_printf_c(int c, t_list_printf *list);
 # endif
-# ifndef FT_PRINTF_PUTSTR
-#  define FT_PRINTF_PUTSTR
+# ifndef FT_PRINTF_S
+#  define FT_PRINTF_S
 
-void			ft_printf_putstr(char *str, t_list_printf *list);
+void			ft_printf_s(char *str, t_list_printf *list);
 # endif
 
 # ifndef FT_PRINTF_PUTNBR
@@ -69,8 +69,8 @@ void			ft_printf_putnbr(int nbr, t_list_printf *list);
 # ifndef FT_PRINTF_PUTNBR_BASE
 #  define FT_PRINTF_PUTNBR_BASE
 
-void			ft_printf_putnbr_base(int64_t nbr, int64_t base, int caps
-					t_test_list *list);
+void			ft_printf_putnbr_base(int64_t nbr, int64_t base, int caps,
+					t_list_printf *list);
 # endif
 
 # ifndef FT_PRINTF_UHEX
