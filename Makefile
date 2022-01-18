@@ -27,7 +27,8 @@ DEPS			=	$(OBJS:.o=.d)
 all:			$(NAME)
 
 $(NAME):		$(LIBFT) $(OBJS)
-				ar -rcs $(NAME) $^
+				cp -p $(LIBFT) $(NAME)
+				ar -rcs $(NAME) $(OBJS) 
 
 $(LIBFT):		
 				$(MAKE) -C $(LIBFT_PATH) all
@@ -47,7 +48,7 @@ fclean:			clean
 re:				fclean all
 
 test:			re
-				$(CC) main.c $(NAME) $(INC) && ./a.out
+				$(CC) main.c $(NAME) $(INC) && ./a.out | cat -e
 
 -include $(DEPS)
 

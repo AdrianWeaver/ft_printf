@@ -6,7 +6,7 @@
 /*   By: aweaver <aweaver@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/18 10:02:21 by aweaver           #+#    #+#             */
-/*   Updated: 2022/01/18 15:45:06 by aweaver          ###   ########.fr       */
+/*   Updated: 2022/01/18 16:11:42 by aweaver          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ int	ft_printf_conversion(const char *str, t_list_printf *list, va_list params)
 	{
 		ft_putchar_fd('%', 1);
 		list->ret++;
+		list->i++;
 	}
 	return (list->ret);
 }
@@ -56,7 +57,7 @@ int	ft_printf(const char *str, ...)
 		}
 		else if (str[list.i] == '%')
 		{
-			ft_lstreset(&list);
+			list.i++;
 			ft_printf_parse(str, &list);
 			ft_printf_conversion(str, &list, params);
 		}
