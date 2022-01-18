@@ -6,21 +6,19 @@ LIBFT_PATH		=	./libft/
 
 LIBFT			=	$(addprefix $(LIBFT_PATH),libft.a)
 
-SRCS			=	$(addprefix $(SRCS_PATH),ft_printf.c				\
-					ft_printf_putchar.c		\
-					ft_strlen.c				\
-					ft_printf_putstr.c		\
-					ft_printf_putnbr.c		\
-					ft_printf_putnbr_base.c	\
-					ft_printf_uhex.c)
+SRCS			=	$(addprefix $(SRCS_PATH),	\
+					ft_lstreset.c				\
+					ft_printf_c.c				\
+					ft_printf_parse.c			\
+					ft_printf.c)
 
-SRCS_BONUS		=	$(addprefix $(SRCS_PATH),ft_printf_bonus.c				\
-					ft_printf_putchar_bonus.c		\
-					ft_strlen_bonus.c				\
-					ft_printf_putstr_bonus.c		\
-					ft_printf_putnbr_bonus.c		\
-					ft_printf_putnbr_base_bonus.c	\
-					ft_printf_uhex_bonus.c)
+#SRCS_BONUS		=	$(addprefix $(SRCS_PATH),ft_printf_bonus.c				\
+					#ft_printf_putchar_bonus.c		\
+					#ft_strlen_bonus.c				\
+					#ft_printf_putstr_bonus.c		\
+					#ft_printf_putnbr_bonus.c		\
+					#ft_printf_putnbr_base_bonus.c	\
+					#ft_printf_uhex_bonus.c)
 
 OBJS			=	$(SRCS:.c=.o)
 
