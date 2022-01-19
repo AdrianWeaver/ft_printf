@@ -6,7 +6,7 @@
 /*   By: aweaver <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/25 11:10:46 by aweaver           #+#    #+#             */
-/*   Updated: 2022/01/19 11:52:49 by aweaver          ###   ########.fr       */
+/*   Updated: 2022/01/19 15:15:28 by aweaver          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,13 @@ int		ft_isprint(int c);
 #  define FT_IS_BASE_OK
 
 int		ft_is_base_ok(int base_len, char *base_format);
+
+# endif
+
+# ifndef FT_IS_UBASE_OK
+#  define FT_IS_UBASE_OK
+
+int		ft_is_ubase_ok(size_t base_len, char *base_format);
 
 # endif
 
@@ -234,6 +241,13 @@ char	*ft_itoa(int n);
 #  define FT_ITOA_BASE
 
 char	*ft_itoa_base(int n, int base_len, char *base_format);
+
+# endif
+
+# ifndef FT_UITOA_BASE
+#  define FT_UITOA_BASE
+
+char	*ft_uitoa_base(size_t n, size_t base_len, char *base_format);
 
 # endif
 
