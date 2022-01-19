@@ -6,13 +6,13 @@
 /*   By: aweaver <aweaver@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 09:05:15 by aweaver           #+#    #+#             */
-/*   Updated: 2022/01/18 09:06:29 by aweaver          ###   ########.fr       */
+/*   Updated: 2022/01/18 20:13:17 by aweaver          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-int	ft_puchar(char c)
+int	ft_putchar(char c)
 {
 	write(1, &c, 1);
 	return (1);
