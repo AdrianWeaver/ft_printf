@@ -11,6 +11,7 @@ LIBFT				=	$(addprefix $(LIBFT_PATH),libft.a)
 SRCS				=	ft_lstreset.c				\
 						ft_printf_c.c				\
 						ft_printf_s.c				\
+						ft_printf_p.c				\
 						ft_printf_parse.c			\
 						ft_printf.c
 
