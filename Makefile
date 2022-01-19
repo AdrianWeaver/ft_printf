@@ -10,6 +10,7 @@ LIBFT				=	$(addprefix $(LIBFT_PATH),libft.a)
 
 SRCS				=	ft_lstreset.c				\
 						ft_printf_c.c				\
+						ft_printf_s.c				\
 						ft_printf_parse.c			\
 						ft_printf.c
 
@@ -19,14 +20,13 @@ CC				=	gcc
 
 CFLAGS			=	-MMD -Wall -Wextra -Werror $(INC)
 
-INC				=	-I ./includes				\
-					-I ./libft
+INC				=	-I ./includes -I ./libft
 
 DEPS			=	$(OBJS:.o=.d)
 
 all:			$(NAME)
 
-$(NAME):		$(LIBFT) $(OBJS)
+$(NAME):		$(OBJS) $(LIBFT)
 				cp -p $(LIBFT) $(NAME)
 				ar -rcs $(NAME) $(OBJS) 
 
@@ -47,8 +47,8 @@ fclean:			clean
 				
 re:				fclean all
 
-test:			re
-				$(CC) main.c $(NAME) $(INC) && ./a.out | cat -e
+test:			all
+				$(CC) main.c libftprintf.a ./libft/libft.a $(INC) && ./a.out | cat -e
 
 -include $(DEPS)
 
