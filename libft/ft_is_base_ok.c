@@ -6,7 +6,7 @@
 /*   By: aweaver <aweaver@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/19 11:23:44 by aweaver           #+#    #+#             */
-/*   Updated: 2022/01/19 11:30:44 by aweaver          ###   ########.fr       */
+/*   Updated: 2022/01/19 12:00:59 by aweaver          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	ft_is_base_ok(int base_len, char *base_format)
 	int	j;
 
 	i = 0;
-	if ((int)ft_strlen(base_format) == base_len && base_len > 1)
+	if ((int)ft_strlen(base_format) >= base_len && base_len > 1)
 	{
 		while (base_format[i])
 		{
