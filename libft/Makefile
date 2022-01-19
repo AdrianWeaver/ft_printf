@@ -6,7 +6,7 @@
 #    By: aweaver <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/23 10:40:46 by aweaver           #+#    #+#              #
-#    Updated: 2022/01/18 10:03:40 by aweaver          ###   ########.fr        #
+#    Updated: 2022/01/19 11:00:17 by aweaver          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,6 +40,7 @@ SRCS	=		ft_isalpha.c		\
 				ft_strtrim.c		\
 				ft_split.c			\
 				ft_itoa.c			\
+				ft_itoa_base.c		\
 				ft_strmapi.c		\
 				ft_striteri.c		\
 				ft_putchar.c		\
@@ -59,7 +60,8 @@ SRCS	=		ft_isalpha.c		\
 				ft_lstclear.c		\
 				ft_lstiter.c		\
 				ft_lstmap.c			\
-				ft_count_digits.c
+				ft_count_digits.c	\
+				ft_count_digits_base.c
 
 OBJS		=	$(SRCS:.c=.o)
 
