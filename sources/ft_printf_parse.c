@@ -6,7 +6,7 @@
 /*   By: aweaver <aweaver@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/14 11:25:07 by aweaver           #+#    #+#             */
-/*   Updated: 2022/01/18 16:12:50 by aweaver          ###   ########.fr       */
+/*   Updated: 2022/01/19 08:45:48 by aweaver          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	ft_printf_parse(const char *str, t_list_printf *list)
 	while (str[list->i] && ft_strchr(CONVERSION, str[list->i]) == 0)
 	{
 		ft_printf_parseloop(str, list);
-		if (ft_isdigit(str[list->i]) == 1)
+		if (ft_isdigit(str[list->i]) == 1 && list->flag_precision == 0)
 		{
 			list->width = ft_atoi(&str[list->i]);
 			while (ft_isdigit(str[list->i]) == 1)
@@ -51,7 +51,7 @@ void	ft_printf_parse(const char *str, t_list_printf *list)
 			list->flag_precision = 1;
 			list->i++;
 			list->precision_width = ft_atoi(&str[list->i]);
-			while (ft_isdigit(str[list->i] == 1))
+			while (ft_isdigit(str[list->i]) == 1)
 				list->i++;
 		}	
 	}
