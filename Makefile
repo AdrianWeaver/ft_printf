@@ -12,6 +12,7 @@ SRCS				=	ft_lstreset.c				\
 						ft_printf_c.c				\
 						ft_printf_s.c				\
 						ft_printf_p.c				\
+						ft_printf_u.c				\
 						ft_printf_parse.c			\
 						ft_printf.c
 
@@ -62,6 +63,10 @@ test_p:			all
 test_s:			all
 				$(CC) main_s.c -o a.out_s libftprintf.a ./libft/libft.a $(INC)
 				./a.out_s | cat -e
+
+test_u:			all
+				$(CC) main_u.c -o a.out_u libftprintf.a ./libft/libft.a $(INC)
+				./a.out_u | cat -e
 
 -include $(DEPS)
 
