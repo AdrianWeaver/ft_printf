@@ -6,7 +6,7 @@
 /*   By: aweaver <aweaver@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 17:30:34 by aweaver           #+#    #+#             */
-/*   Updated: 2022/01/21 00:10:47 by aweaver          ###   ########.fr       */
+/*   Updated: 2022/01/21 00:22:21 by aweaver          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,16 +48,17 @@ static void	u_nohyphen_flag(char *str, t_list_printf *list)
 	}
 }
 
-static char	*u_flag_precision(char *str, t_list_printf *list,
+static char	*u_flag_precision(char *tmp, t_list_printf *list,
 		unsigned int unbr)
 {
-	int	str_len;
+	char	*str;
+	int		str_len;
 
-	str_len = (int)ft_strlen(str);
+	str_len = (int)ft_strlen(tmp);
 	if (list->flag_precision == 1 && list->precision_width == 0 && unbr == 0)
 	{
-		*str = 0;
-		return (str);
+		*tmp = 0;
+		return (tmp);
 	}
 	if (list->precision_width < 0)
 		list->flag_precision = 0;
@@ -65,8 +66,10 @@ static char	*u_flag_precision(char *str, t_list_printf *list,
 	{
 		while (list->precision_width > str_len)
 		{
-			str = ft_strjoin("0", str);
+			str = ft_strjoin("0", tmp);
 			list->precision_width--;
+			free(tmp);
+			tmp = str;
 		}
 	}
 	return (str);
