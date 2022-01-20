@@ -6,7 +6,7 @@
 /*   By: aweaver <aweaver@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 17:30:34 by aweaver           #+#    #+#             */
-/*   Updated: 2022/01/20 19:33:05 by aweaver          ###   ########.fr       */
+/*   Updated: 2022/01/20 22:03:49 by aweaver          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,9 @@ static void	u_noflag_width(char *str, t_list_printf *list)
 
 //static void	u_flag_zero(char *str, t_list_printf *list)
 //{
+	//while ((list->flag_zero == 1 && list->flag_hyphen == 0
+		//&& list->flag_precision	== 0) && (list->width -
+//
 //}
 
 static void	u_flag_hyphen(t_list_printf *list)
@@ -50,6 +53,7 @@ static void	u_flag_hyphen(t_list_printf *list)
 			list->width--;
 		}
 	}
+
 }
 
 void	ft_printf_u(unsigned int unbr, t_list_printf *list)
