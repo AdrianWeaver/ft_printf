@@ -51,6 +51,18 @@ re:				fclean all
 test:			all
 				$(CC) main.c libftprintf.a ./libft/libft.a $(INC) && ./a.out | cat -e
 
+test_c:			all
+				$(CC) main_c.c -o a.out_c libftprintf.a ./libft/libft.a $(INC)
+				./a.out_c | cat -e
+
+test_p:			all
+				$(CC) main_p.c -o a.out_p libftprintf.a ./libft/libft.a $(INC)
+				./a.out_p | cat -e
+
+test_s:			all
+				$(CC) main_s.c -o a.out_s libftprintf.a ./libft/libft.a $(INC)
+				./a.out_s | cat -e
+
 -include $(DEPS)
 
-.PHONY:			all re clean fclean test
+.PHONY:			all re clean fclean test test3
