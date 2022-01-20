@@ -6,7 +6,7 @@
 /*   By: aweaver <aweaver@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 14:59:49 by aweaver           #+#    #+#             */
-/*   Updated: 2022/01/20 12:42:34 by aweaver          ###   ########.fr       */
+/*   Updated: 2022/01/20 23:09:45 by aweaver          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,8 @@ static void	s_noflag_width(char *str, t_list_printf *list)
 
 static void	s_flag_precision(char *str, t_list_printf *list)
 {
+	if (list->precision_width < 0)
+		list->flag_precision = 0;
 	if (list->flag_precision == 1)
 	{
 		while (*str && list->precision_width > 0)
