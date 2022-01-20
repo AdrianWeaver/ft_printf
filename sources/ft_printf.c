@@ -6,7 +6,7 @@
 /*   By: aweaver <aweaver@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/18 10:02:21 by aweaver           #+#    #+#             */
-/*   Updated: 2022/01/19 13:59:58 by aweaver          ###   ########.fr       */
+/*   Updated: 2022/01/20 17:43:45 by aweaver          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ int	ft_printf_conversion(const char *str, t_list_printf *list, va_list params)
 		ft_printf_s(va_arg(params, char *), list);
 	//if (str[list->i] == 'i' || str[list->i] == 'd')
 		//ft_printf_putnbr_base(va_arg(params, int), 10, 0);
-	//if (str[list->i] == 'u')
-		//ft_printf_uhex(va_arg(params, unsigned int), 10, 2, 0);
+	if (str[list->i] == 'u')
+		ft_printf_u(va_arg(params, unsigned int), list);
 	if (str[list->i] == 'p')
 		ft_printf_p(va_arg(params, unsigned long int), list);
 	//if (str[list->i] == 'x')
