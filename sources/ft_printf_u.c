@@ -6,12 +6,23 @@
 /*   By: aweaver <aweaver@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 17:30:34 by aweaver           #+#    #+#             */
-/*   Updated: 2022/01/20 23:53:08 by aweaver          ###   ########.fr       */
+/*   Updated: 2022/01/21 00:10:47 by aweaver          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 #include "libft.h"
+
+static void	u_make_magic(t_list_printf *list, unsigned int nbr)
+{
+	while ((list->flag_precision == 1 && list->precision_width == 0
+			&& list->flag_zero == 0 && list->flag_hyphen == 0
+			&& nbr == 0) && (list->width > 0))
+	{
+		list->ret += ft_putchar(' ');
+		list->width--;
+	}
+}
 
 static void	u_nohyphen_flag(char *str, t_list_printf *list)
 {
@@ -37,11 +48,17 @@ static void	u_nohyphen_flag(char *str, t_list_printf *list)
 	}
 }
 
-static char	*u_flag_precision(char *str, t_list_printf *list)
+static char	*u_flag_precision(char *str, t_list_printf *list,
+		unsigned int unbr)
 {
 	int	str_len;
 
 	str_len = (int)ft_strlen(str);
+	if (list->flag_precision == 1 && list->precision_width == 0 && unbr == 0)
+	{
+		*str = 0;
+		return (str);
+	}
 	if (list->precision_width < 0)
 		list->flag_precision = 0;
 	if (list->flag_precision == 1)
@@ -72,8 +89,9 @@ void	ft_printf_u(unsigned int unbr, t_list_printf *list)
 	char	*str;
 
 	str = ft_uitoa_base((size_t)unbr, 10, "0123456789");
-	str = u_flag_precision(str, list);
+	str = u_flag_precision(str, list, unbr);
 	u_nohyphen_flag(str, list);
+	u_make_magic(list, unbr);
 	list->ret += ft_putstr(str);
 	list->width -= ft_strlen(str);
 	u_flag_hyphen(list);
