@@ -65,4 +65,4 @@ test_s:			all
 
 -include $(DEPS)
 
-.PHONY:			all re clean fclean test test3
+.PHONY:			all re clean fclean test test_c test_p test_s
