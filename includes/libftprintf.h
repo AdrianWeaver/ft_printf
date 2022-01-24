@@ -6,7 +6,7 @@
 /*   By: aweaver <aweaver@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/18 10:10:48 by aweaver           #+#    #+#             */
-/*   Updated: 2022/01/24 17:28:10 by aweaver          ###   ########.fr       */
+/*   Updated: 2022/01/24 17:38:32 by aweaver          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,13 @@ typedef struct s_list_printf
 	int		width;
 }			t_list_printf;
 
+# ifndef FT_FLAG_HYPHEN
+#  define FT_FLAG_HYPHEN
+
+void			ft_flag_hyphen(t_list_printf *list);
+
+# endif
+
 # ifndef FT_PRINTF
 #  define FT_PRINTF
 
@@ -77,7 +84,8 @@ void			ft_printf_u(unsigned int unbr, t_list_printf *list);
 # ifndef FT_PRINTF_X
 #  define FT_PRINTF_X
 
-void			ft_printf_x(unsigned int unbr, t_list_printf *list,	const char *src);
+void			ft_printf_x(unsigned int unbr, t_list_printf *list,
+					const char *src);
 
 # endif
 
