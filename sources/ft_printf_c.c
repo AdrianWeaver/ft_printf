@@ -6,7 +6,7 @@
 /*   By: aweaver <aweaver@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 08:43:19 by aweaver           #+#    #+#             */
-/*   Updated: 2022/01/19 16:32:30 by aweaver          ###   ########.fr       */
+/*   Updated: 2022/01/24 17:42:38 by aweaver          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,6 @@ void	ft_printf_c(int c, t_list_printf *list)
 	}
 	list->ret += ft_putchar(c);
 	list->width--;
-	while (list->width > 0)
-	{
-		list->ret += ft_putchar(' ');
-		list->width--;
-	}
+	ft_flag_hyphen(list);
 	list->i++;
 }
