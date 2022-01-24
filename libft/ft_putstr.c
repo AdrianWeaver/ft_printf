@@ -6,7 +6,7 @@
 /*   By: aweaver <aweaver@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 09:09:06 by aweaver           #+#    #+#             */
-/*   Updated: 2022/01/18 20:12:20 by aweaver          ###   ########.fr       */
+/*   Updated: 2022/01/24 20:44:22 by aweaver          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,15 @@
 
 int	ft_putstr(char *s)
 {
-	int	ret;
+	int	i;
 
-	if (!s)
+	i = 0;
+	if (s == 0)
 		return (0);
-	ret = 0;
-	while (*s)
-		ret += ft_putchar(*s++);
-	return (ret);
+	while (s[i])
+	{
+		write(1, &s[i], 1);
+		i++;
+	}
+	return (i);
 }

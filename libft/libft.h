@@ -6,7 +6,7 @@
 /*   By: aweaver <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/25 11:10:46 by aweaver           #+#    #+#             */
-/*   Updated: 2022/01/19 15:15:28 by aweaver          ###   ########.fr       */
+/*   Updated: 2022/01/24 21:58:26 by aweaver          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -392,7 +392,7 @@ int		ft_count_digits(long int nb);
 # ifndef FT_COUNT_DIGITS_BASE
 #  define FT_COUNT_DIGITS_BASE
 
-int		ft_count_digits_base(long int nb, int base_len);
+int		ft_count_digits_base(size_t nb, size_t base_len);
 
 # endif
 #endif

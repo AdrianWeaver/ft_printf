@@ -14,6 +14,7 @@ SRCS				=	ft_lstreset.c				\
 						ft_printf_p.c				\
 						ft_printf_u.c				\
 						ft_printf_x.c				\
+						ft_flag_hyphen.c			\
 						ft_printf_parse.c			\
 						ft_printf.c
 
@@ -21,7 +22,7 @@ OBJS			=	$(addprefix $(OBJS_PATH),$(SRCS:.c=.o))
 
 CC				=	gcc
 
-CFLAGS			=	-MMD -Wall -Wextra -Werror $(INC)
+CFLAGS			=	-g3 -MMD -Wall -Wextra -Werror $(INC)
 
 INC				=	-I ./includes -I ./libft
 
@@ -66,11 +67,11 @@ test_s:			all
 				./a.out_s | cat -e
 
 test_u:			all
-				$(CC) main_u.c -o a.out_u libftprintf.a ./libft/libft.a $(INC)
+				$(CC) -g3 main_u.c -o a.out_u libftprintf.a ./libft/libft.a $(INC)
 				./a.out_u | cat -e
 
 test_x:			all
-				$(CC) main_x.c -o a.out_x libftprintf.a ./libft/libft.a $(INC)
+				$(CC) -g3 main_x.c -o a.out_x libftprintf.a ./libft/libft.a $(INC)
 				./a.out_x | cat -e
 -include $(DEPS)
 
