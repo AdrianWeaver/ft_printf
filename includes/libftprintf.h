@@ -6,7 +6,7 @@
 /*   By: aweaver <aweaver@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/18 10:10:48 by aweaver           #+#    #+#             */
-/*   Updated: 2022/01/20 19:30:58 by aweaver          ###   ########.fr       */
+/*   Updated: 2022/01/24 17:28:10 by aweaver          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,13 @@ void			ft_printf_p(unsigned long int addr, t_list_printf *list);
 #  define FT_PRINTF_U
 
 void			ft_printf_u(unsigned int unbr, t_list_printf *list);
+
+# endif
+
+# ifndef FT_PRINTF_X
+#  define FT_PRINTF_X
+
+void			ft_printf_x(unsigned int unbr, t_list_printf *list,	const char *src);
 
 # endif
 
