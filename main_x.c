@@ -6,7 +6,7 @@
 /*   By: aweaver <aweaver@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 16:35:18 by aweaver           #+#    #+#             */
-/*   Updated: 2022/01/24 17:20:45 by aweaver          ###   ########.fr       */
+/*   Updated: 2022/01/24 21:53:18 by aweaver          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 int	main(void)
 {
-	unsigned int		tab[6];
+	unsigned int		tab[5];
 	int					i;
 	int					total;
 
@@ -110,7 +110,7 @@ int	main(void)
 		total += printf("76 - vrai printf %%x : %#-42.1x\n", tab[i]);
 		total += printf("77 - vrai printf %%x : %#-42.8x\n", tab[i]);
 		total += printf("78 - vrai printf %%x : %#-42.42x\n", tab[i]);
-		printf("[%x] vrai printf total printed : %i\n", tab[i], total);
+		printf("%x vrai printf total printed : %i\n", tab[i], total);
 		total = 0;
 		total += ft_printf("01 - faux printf %%x : %x\n", tab[i]);
 		total += ft_printf("02 - faux printf %%x : %1x\n", tab[i]);

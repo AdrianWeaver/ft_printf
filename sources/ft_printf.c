@@ -6,7 +6,7 @@
 /*   By: aweaver <aweaver@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/18 10:02:21 by aweaver           #+#    #+#             */
-/*   Updated: 2022/01/24 17:29:15 by aweaver          ###   ########.fr       */
+/*   Updated: 2022/01/24 17:44:31 by aweaver          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@ int	ft_printf_conversion(const char *str, t_list_printf *list, va_list params)
 		ft_printf_p(va_arg(params, unsigned long int), list);
 	if (str[list->i] == 'x')
 		ft_printf_x(va_arg(params, unsigned int), list, str);
-	//if (str[list->i] == 'X')
-		//ft_printf_uhex(va_arg(params, unsigned int), 16, 2, 55);
+	if (str[list->i] == 'X')
+		ft_printf_x(va_arg(params, unsigned int), list, str);
 	else if (str[list->i] == '%')
 	{
 		ft_putchar_fd('%', 1);
