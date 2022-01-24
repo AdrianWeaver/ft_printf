@@ -6,7 +6,7 @@
 /*   By: aweaver <aweaver@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 14:59:49 by aweaver           #+#    #+#             */
-/*   Updated: 2022/01/20 23:09:45 by aweaver          ###   ########.fr       */
+/*   Updated: 2022/01/24 15:51:20 by aweaver          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,8 @@ static void	s_flag_hyphen(t_list_printf *list)
 
 void	ft_printf_s(char *str, t_list_printf *list)
 {
+	if (!str)
+		return ;
 	s_noflag_width(str, list);
 	s_flag_precision(str, list);
 	s_flag_hyphen(list);
