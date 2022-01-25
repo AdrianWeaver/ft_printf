@@ -6,7 +6,7 @@
 /*   By: aweaver <aweaver@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/18 10:10:48 by aweaver           #+#    #+#             */
-/*   Updated: 2022/01/24 17:38:32 by aweaver          ###   ########.fr       */
+/*   Updated: 2022/01/25 13:11:45 by aweaver          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,6 +107,13 @@ void			ft_printf_putnbr_base(int64_t nbr, int64_t base, int caps,
 
 void			ft_printf_uhex(unsigned long int nbr, unsigned long int base,
 					int addr_flag, int caps);
+
+# endif
+
+# ifndef FT_CHECK_FLAGS
+#  define FT_CHECK_FLAGS
+
+void			ft_printf_check_flags(t_list_printf *list);
 
 # endif
 

@@ -6,7 +6,7 @@
 /*   By: aweaver <aweaver@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 16:35:18 by aweaver           #+#    #+#             */
-/*   Updated: 2022/01/21 00:14:21 by aweaver          ###   ########.fr       */
+/*   Updated: 2022/01/25 15:34:18 by aweaver          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,21 @@ int	main(void)
 		total += printf("37 - vrai printf %%u : %-42.8u\n", tab[i]);
 		total += printf("38 - vrai printf %%u : %-42.42u\n", tab[i]);
 		total += printf("39 - vrai printf %%u : %0.u\n", tab[i]);
+		total += printf("40 - vrai printf %%u : %0.1u\n", tab[i]);
+		total += printf("41 - vrai printf %%u : %0.8u\n", tab[i]);
+		total += printf("42 - vrai printf %%u : %0.42u\n", tab[i]);
+		total += printf("43 - vrai printf %%u : %01.u\n", tab[i]);
+		total += printf("44 - vrai printf %%u : %01.1u\n", tab[i]);
+		total += printf("45 - vrai printf %%u : %01.8u\n", tab[i]);
+		total += printf("46 - vrai printf %%u : %01.42u\n", tab[i]);
+		total += printf("47 - vrai printf %%u : %08.u\n", tab[i]);
+		total += printf("48 - vrai printf %%u : %08.1u\n", tab[i]);
+		total += printf("49 - vrai printf %%u : %08.8u\n", tab[i]);
+		total += printf("50 - vrai printf %%u : %08.42u\n", tab[i]);
+		total += printf("51 - vrai printf %%u : %042.u\n", tab[i]);
+		total += printf("52 - vrai printf %%u : %042.1u\n", tab[i]);
+		total += printf("53 - vrai printf %%u : %042.8u\n", tab[i]);
+		total += printf("54 - vrai printf %%u : %042.42u\n", tab[i]);
 		printf("[%u] vrai printf total printed : %i\n", tab[i], total);
 		total = 0;
 		total += ft_printf("01 - faux printf %%u : %u\n", tab[i]);
@@ -112,6 +127,21 @@ int	main(void)
 		total += ft_printf("37 - faux printf %%u : %-42.8u\n", tab[i]);
 		total += ft_printf("38 - faux printf %%u : %-42.42u\n", tab[i]);
 		total += ft_printf("39 - faux printf %%u : %0.u\n", tab[i]);
+		total += ft_printf("40 - faux printf %%u : %0.1u\n", tab[i]);
+		total += ft_printf("41 - faux printf %%u : %0.8u\n", tab[i]);
+		total += ft_printf("42 - faux printf %%u : %0.42u\n", tab[i]);
+		total += ft_printf("43 - faux printf %%u : %01.u\n", tab[i]);
+		total += ft_printf("44 - faux printf %%u : %01.1u\n", tab[i]);
+		total += ft_printf("45 - faux printf %%u : %01.8u\n", tab[i]);
+		total += ft_printf("46 - faux printf %%u : %01.42u\n", tab[i]);
+		total += ft_printf("47 - faux printf %%u : %08.u\n", tab[i]);
+		total += ft_printf("48 - faux printf %%u : %08.1u\n", tab[i]);
+		total += ft_printf("49 - faux printf %%u : %08.8u\n", tab[i]);
+		total += ft_printf("50 - faux printf %%u : %08.42u\n", tab[i]);
+		total += ft_printf("51 - faux printf %%u : %042.u\n", tab[i]);
+		total += ft_printf("52 - faux printf %%u : %042.1u\n", tab[i]);
+		total += ft_printf("53 - faux printf %%u : %042.8u\n", tab[i]);
+		total += ft_printf("54 - faux printf %%u : %042.42u\n", tab[i]);
 		printf("[%u] faux printf total printed : %i\n", tab[i], total);
 		i++;
 	}

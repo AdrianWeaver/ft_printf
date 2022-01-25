@@ -6,7 +6,7 @@
 /*   By: aweaver <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/25 11:10:46 by aweaver           #+#    #+#             */
-/*   Updated: 2022/01/24 21:58:26 by aweaver          ###   ########.fr       */
+/*   Updated: 2022/01/25 15:32:45 by aweaver          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,13 +66,6 @@ int		ft_isprint(int c);
 #  define FT_IS_BASE_OK
 
 int		ft_is_base_ok(int base_len, char *base_format);
-
-# endif
-
-# ifndef FT_IS_UBASE_OK
-#  define FT_IS_UBASE_OK
-
-int		ft_is_ubase_ok(size_t base_len, char *base_format);
 
 # endif
 
@@ -244,6 +237,13 @@ char	*ft_itoa_base(int n, int base_len, char *base_format);
 
 # endif
 
+# ifndef FT_UITOA
+#  define FT_UITOA
+
+char	*ft_uitoa(unsigned int n);
+
+# endif
+
 # ifndef FT_UITOA_BASE
 #  define FT_UITOA_BASE
 
@@ -395,4 +395,5 @@ int		ft_count_digits(long int nb);
 int		ft_count_digits_base(size_t nb, size_t base_len);
 
 # endif
+
 #endif
