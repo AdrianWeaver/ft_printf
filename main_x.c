@@ -6,7 +6,7 @@
 /*   By: aweaver <aweaver@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 16:35:18 by aweaver           #+#    #+#             */
-/*   Updated: 2022/01/24 21:53:18 by aweaver          ###   ########.fr       */
+/*   Updated: 2022/01/25 12:41:41 by aweaver          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ int	main(void)
 		total += printf("42 - vrai printf %%x : %#1x\n", tab[i]);
 		total += printf("43 - vrai printf %%x : %#42x\n", tab[i]);
 		total += printf("44 - vrai printf %%x : %#0x\n", tab[i]);
-		total += printf("45 - vrai printf %%x : %#01x\n", tab[i]);
+		total += printf("45 - vrai printf %%x : %#08x\n", tab[i]);
 		total += printf("46 - vrai printf %%x : %#042x\n", tab[i]);
 		total += printf("47 - vrai printf %%x : %#-x\n", tab[i]);
 		total += printf("48 - vrai printf %%x : %#-1x\n", tab[i]);
@@ -110,6 +110,9 @@ int	main(void)
 		total += printf("76 - vrai printf %%x : %#-42.1x\n", tab[i]);
 		total += printf("77 - vrai printf %%x : %#-42.8x\n", tab[i]);
 		total += printf("78 - vrai printf %%x : %#-42.42x\n", tab[i]);
+		total += printf("79 - vrai printf %%x : %#08.2x\n", tab[i]);
+		total += printf("80 - vrai printf %%x : %#08.42x\n", tab[i]);
+		total += printf("81 - vrai printf %%x : %#042.x\n", tab[i]);
 		printf("%x vrai printf total printed : %i\n", tab[i], total);
 		total = 0;
 		total += ft_printf("01 - faux printf %%x : %x\n", tab[i]);
@@ -157,7 +160,7 @@ int	main(void)
 		total += ft_printf("42 - faux printf %%x : %#1x\n", tab[i]);
 		total += ft_printf("43 - faux printf %%x : %#42x\n", tab[i]);
 		total += ft_printf("44 - faux printf %%x : %#0x\n", tab[i]);
-		total += ft_printf("45 - faux printf %%x : %#01x\n", tab[i]);
+		total += ft_printf("45 - faux printf %%x : %#08x\n", tab[i]);
 		total += ft_printf("46 - faux printf %%x : %#042x\n", tab[i]);
 		total += ft_printf("47 - faux printf %%x : %#-x\n", tab[i]);
 		total += ft_printf("48 - faux printf %%x : %#-1x\n", tab[i]);
@@ -191,6 +194,7 @@ int	main(void)
 		total += ft_printf("75 - faux printf %%x : %##-42.x\n", tab[i]);
 		total += ft_printf("76 - faux printf %%x : %#-42.1x\n", tab[i]);
 		total += ft_printf("77 - faux printf %%x : %#-42.8x\n", tab[i]);
+		total += ft_printf("78 - faux printf %%x : %#-42.42x\n", tab[i]);
 		printf("[%x] faux printf total printed : %i\n", tab[i], total);
 		i++;
 	}

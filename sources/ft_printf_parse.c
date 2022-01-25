@@ -6,7 +6,7 @@
 /*   By: aweaver <aweaver@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/14 11:25:07 by aweaver           #+#    #+#             */
-/*   Updated: 2022/01/19 08:45:48 by aweaver          ###   ########.fr       */
+/*   Updated: 2022/01/25 13:12:02 by aweaver          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,4 +55,5 @@ void	ft_printf_parse(const char *str, t_list_printf *list)
 				list->i++;
 		}	
 	}
+	ft_printf_check_flags(list);
 }

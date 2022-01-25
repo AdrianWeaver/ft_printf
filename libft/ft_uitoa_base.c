@@ -6,15 +6,16 @@
 /*   By: aweaver <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/29 15:40:47 by aweaver           #+#    #+#             */
-/*   Updated: 2022/01/19 15:07:32 by aweaver          ###   ########.fr       */
+/*   Updated: 2022/01/25 15:09:17 by aweaver          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
 #include <stdlib.h>
 #include <stddef.h>
+#include <stdio.h>
+#include "libft.h"
 
-int	ft_is_ubase_ok(size_t base_len, char *base_format)
+static int	ft_is_ubase_ok(size_t base_len, char *base_format)
 {
 	int	i;
 	int	j;

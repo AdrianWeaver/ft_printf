@@ -6,7 +6,7 @@
 /*   By: aweaver <aweaver@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 17:30:34 by aweaver           #+#    #+#             */
-/*   Updated: 2022/01/24 17:43:42 by aweaver          ###   ########.fr       */
+/*   Updated: 2022/01/25 15:33:37 by aweaver          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static void	u_nohyphen_flag(char *str, t_list_printf *list)
 
 	if (list->flag_hyphen == 0 && list->flag_zero == 0 && list->width > 1)
 	{
-		str_len = ft_strlen(str);
+		str_len = (int)ft_strlen(str);
 		while (list->width > str_len)
 		{
 			list->ret += ft_putchar(' ');
@@ -39,7 +39,7 @@ static void	u_nohyphen_flag(char *str, t_list_printf *list)
 	}
 	if (list->flag_hyphen == 0 && list->flag_zero == 1 && list->width > 1)
 	{
-		str_len = ft_strlen(str);
+		str_len = (int)ft_strlen(str);
 		while (list->width > str_len)
 		{
 			list->ret += ft_putchar('0');
@@ -55,13 +55,15 @@ static char	*u_flag_precision(char *tmp, t_list_printf *list,
 	int		str_len;
 
 	str_len = (int)ft_strlen(tmp);
+	if (list->precision_width < 0)
+		list->flag_precision = 0;
 	if (list->flag_precision == 1 && list->precision_width == 0 && unbr == 0)
 	{
+		free(tmp);
+		tmp = malloc(sizeof(*tmp) * 1);
 		*tmp = 0;
 		return (tmp);
 	}
-	if (list->precision_width < 0)
-		list->flag_precision = 0;
 	if (list->flag_precision == 1)
 	{
 		while (list->precision_width > str_len)
@@ -72,19 +74,19 @@ static char	*u_flag_precision(char *tmp, t_list_printf *list,
 			tmp = str;
 		}
 	}
-	return (str);
+	return (tmp);
 }
 
 void	ft_printf_u(unsigned int unbr, t_list_printf *list)
 {
 	char	*str;
 
-	str = ft_uitoa_base((size_t)unbr, 10, "0123456789");
+	str = ft_uitoa(unbr);
 	str = u_flag_precision(str, list, unbr);
 	u_nohyphen_flag(str, list);
 	u_make_magic(list, unbr);
 	list->ret += ft_putstr(str);
-	list->width -= ft_strlen(str);
+	list->width -= (int)ft_strlen(str);
 	ft_flag_hyphen(list);
 	list->i++;
 	free(str);

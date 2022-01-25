@@ -15,6 +15,7 @@ SRCS				=	ft_lstreset.c				\
 						ft_printf_u.c				\
 						ft_printf_x.c				\
 						ft_flag_hyphen.c			\
+						ft_printf_check_flags.c		\
 						ft_printf_parse.c			\
 						ft_printf.c
 
@@ -67,7 +68,11 @@ test_s:			all
 				./a.out_s | cat -e
 
 test_u:			all
-				$(CC) -g3 main_u.c -o a.out_u libftprintf.a ./libft/libft.a $(INC)
+				$(CC) main_u.c -o a.out_u libftprintf.a ./libft/libft.a $(INC)
+				./a.out_u | cat -e
+
+test_U:			all
+				$(CC) -fsanitize=address main_u.c -o a.out_u libftprintf.a ./libft/libft.a $(INC)
 				./a.out_u | cat -e
 
 test_x:			all
