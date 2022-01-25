@@ -6,7 +6,7 @@
 /*   By: aweaver <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/25 11:10:46 by aweaver           #+#    #+#             */
-/*   Updated: 2022/01/25 15:32:45 by aweaver          ###   ########.fr       */
+/*   Updated: 2022/01/25 17:15:14 by aweaver          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -237,17 +237,31 @@ char	*ft_itoa_base(int n, int base_len, char *base_format);
 
 # endif
 
-# ifndef FT_UITOA
-#  define FT_UITOA
+# ifndef FT_UTOA
+#  define FT_UTOA
 
-char	*ft_uitoa(unsigned int n);
+char	*ft_utoa(unsigned int n);
 
 # endif
 
-# ifndef FT_UITOA_BASE
-#  define FT_UITOA_BASE
+# ifndef FT_ULTOA
+#  define FT_ULTOA
 
-char	*ft_uitoa_base(size_t n, size_t base_len, char *base_format);
+char	*ft_ultoa(unsigned long int n);
+
+# endif
+
+# ifndef FT_UTOA_BASE
+#  define FT_UTOA_BASE
+
+char	*ft_utoa_base(unsigned int n, unsigned int base_len, char *base_format);
+
+# endif
+
+# ifndef FT_ULTOA_BASE
+#  define FT_ULTOA_BASE
+
+char	*ft_ultoa_base(size_t n, size_t base_len, char *base_format);
 
 # endif
 

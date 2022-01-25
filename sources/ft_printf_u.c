@@ -6,7 +6,7 @@
 /*   By: aweaver <aweaver@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 17:30:34 by aweaver           #+#    #+#             */
-/*   Updated: 2022/01/25 15:33:37 by aweaver          ###   ########.fr       */
+/*   Updated: 2022/01/25 17:16:40 by aweaver          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ void	ft_printf_u(unsigned int unbr, t_list_printf *list)
 {
 	char	*str;
 
-	str = ft_uitoa(unbr);
+	str = ft_utoa(unbr);
 	str = u_flag_precision(str, list, unbr);
 	u_nohyphen_flag(str, list);
 	u_make_magic(list, unbr);

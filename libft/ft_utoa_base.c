@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_uitoa_base.c                                    :+:      :+:    :+:   */
+/*   ft_utoa_base.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aweaver <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/29 15:40:47 by aweaver           #+#    #+#             */
-/*   Updated: 2022/01/25 15:09:17 by aweaver          ###   ########.fr       */
+/*   Updated: 2022/01/25 17:02:37 by aweaver          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include <stdio.h>
 #include "libft.h"
 
-static int	ft_is_ubase_ok(size_t base_len, char *base_format)
+static int	ft_is_ubase_ok(unsigned int base_len, char *base_format)
 {
 	int	i;
 	int	j;
@@ -43,7 +43,7 @@ static int	ft_is_ubase_ok(size_t base_len, char *base_format)
 	return (0);
 }	
 
-static char	*ft_get_ptr(int digits, size_t base_len, char *base_format)
+static char	*ft_get_ptr(int digits, unsigned int base_len, char *base_format)
 {
 	char	*ret;
 
@@ -55,24 +55,24 @@ static char	*ft_get_ptr(int digits, size_t base_len, char *base_format)
 	return (ret);
 }
 
-char	*ft_uitoa_base(size_t n, size_t base_len, char *base_format)
+char	*ft_utoa_base(unsigned int n, unsigned int base_len, char *base_format)
 {
-	unsigned long int	nbr;
-	int					digits;
-	char				*ret;
+	int		nsave;
+	int		digits;
+	char	*ret;
 
-	nbr = n;
+	nsave = n;
 	digits = ft_count_digits_base(n, base_len);
 	ret = ft_get_ptr(digits, base_len, base_format);
 	if (ret == 0)
 		return (0);
-	if ((nbr > 9 && nbr <= base_len) || n == 0)
+	if ((n > 9 && n <= base_len) || nsave == 0)
 		ret[0] = '0';
-	while (nbr > 0)
+	while (n > 0)
 	{
-		ret[digits - 1] = base_format[(nbr % base_len)];
+		ret[digits - 1] = base_format[(n % base_len)];
 		digits--;
-		nbr /= base_len;
+		n /= base_len;
 	}
 	return (ret);
 }	
