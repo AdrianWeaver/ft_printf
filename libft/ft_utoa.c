@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_uitoa.c                                         :+:      :+:    :+:   */
+/*   ft_utoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aweaver <aweaver@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/25 15:29:48 by aweaver           #+#    #+#             */
-/*   Updated: 2022/01/25 15:31:37 by aweaver          ###   ########.fr       */
+/*   Created: 2022/01/25 16:57:01 by aweaver           #+#    #+#             */
+/*   Updated: 2022/01/25 16:57:40 by aweaver          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,13 +31,13 @@ static int	ft_count_digit(long int n)
 	return (digits);
 }
 
-char	*ft_uitoa(unsigned int n)
+char	*ft_utoa(unsigned int n)
 {
-	unsigned long int	nbr;
-	int					digits;
-	char				*ret;
+	unsigned int	nbr;
+	int				digits;
+	char			*ret;
 
-	nbr = (unsigned long int)n;
+	nbr = n;
 	digits = ft_count_digit(n);
 	ret = malloc(sizeof(*ret) * (digits + 1));
 	if (!ret)

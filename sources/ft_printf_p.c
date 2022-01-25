@@ -6,7 +6,7 @@
 /*   By: aweaver <aweaver@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/19 14:00:09 by aweaver           #+#    #+#             */
-/*   Updated: 2022/01/24 17:41:28 by aweaver          ###   ########.fr       */
+/*   Updated: 2022/01/25 17:16:27 by aweaver          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void	ft_printf_p(unsigned long int addr, t_list_printf *list)
 	}
 	else
 	{
-		str = ft_uitoa_base((size_t)addr, 16, "0123456789abcdef");
+		str = ft_ultoa_base((size_t)addr, 16, "0123456789abcdef");
 		str = p_addr_prefix("0x", str);
 	}
 	p_noflag_width(str, list);
