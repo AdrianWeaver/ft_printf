@@ -6,7 +6,7 @@
 #    By: aweaver <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/23 10:40:46 by aweaver           #+#    #+#              #
-#    Updated: 2022/01/25 17:03:51 by aweaver          ###   ########.fr        #
+#    Updated: 2022/01/26 08:15:00 by aweaver          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,6 +19,7 @@ SRCS	=		ft_isalpha.c		\
 				ft_isprint.c		\
 				ft_is_base_ok.c		\
 				ft_strlen.c			\
+				ft_strlen_int.c		\
 				ft_memset.c			\
 				ft_bzero.c			\
 				ft_memcpy.c			\

@@ -6,7 +6,7 @@
 /*   By: aweaver <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/25 11:10:46 by aweaver           #+#    #+#             */
-/*   Updated: 2022/01/25 17:15:14 by aweaver          ###   ########.fr       */
+/*   Updated: 2022/01/26 08:14:46 by aweaver          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,13 @@ int		ft_is_base_ok(int base_len, char *base_format);
 #  define FT_STRLEN_H
 
 size_t	ft_strlen(const char *s);
+
+# endif
+
+# ifndef FT_STRLEN_INT
+#  define FT_STRLEN_INT
+
+int		ft_strlen_int(const char *s);
 
 # endif
 
