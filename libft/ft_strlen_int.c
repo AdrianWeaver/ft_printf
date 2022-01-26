@@ -6,13 +6,13 @@
 /*   By: aweaver <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/23 13:38:38 by aweaver           #+#    #+#             */
-/*   Updated: 2022/01/26 08:14:06 by aweaver          ###   ########.fr       */
+/*   Updated: 2022/01/26 11:14:40 by aweaver          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stddef.h>
 
-int	ft_strlen_int(const char *s)
+int	ft_strlen_int(char *s)
 {
 	int	i;
 

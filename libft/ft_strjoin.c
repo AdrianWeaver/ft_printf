@@ -6,7 +6,7 @@
 /*   By: aweaver <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/02 15:39:08 by aweaver           #+#    #+#             */
-/*   Updated: 2021/12/02 15:40:38 by aweaver          ###   ########.fr       */
+/*   Updated: 2022/01/26 11:02:59 by aweaver          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,12 @@ static char	*ft_strcpy(char *dest, const char *str)
 {
 	size_t	i;
 
-	i = -1;
-	while (str[++i])
+	i = 0;
+	while (str[i])
+	{
 		dest[i] = str[i];
+		i++;
+	}
 	dest[i] = 0;
 	return (dest);
 }
@@ -36,7 +39,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 
 	if (!s1 || !s2)
 		return (0);
-	str_joined = malloc(sizeof(*str_joined) * (ft_strlen(s1) + ft_strlen(s2)
+	str_joined = malloc(sizeof(*str_joined) * ((ft_strlen(s1) + ft_strlen(s2))
 				+ 1));
 	if (str_joined == 0)
 		return (0);

@@ -6,7 +6,7 @@
 /*   By: aweaver <aweaver@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 16:57:00 by aweaver           #+#    #+#             */
-/*   Updated: 2022/01/26 10:20:35 by aweaver          ###   ########.fr       */
+/*   Updated: 2022/01/26 11:33:15 by aweaver          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,12 +42,13 @@ static char	*x_hashtag(const char *src, char *str, t_list_printf *list)
 		dummy[2] = 0;
 		tmp = ft_strjoin(dummy, str);
 		free(str);
+		free(dummy);
 		str = tmp;
 	}
 	return (str);
 }
 
-static char	*x_precision(const char *src, char *str, t_list_printf *list)
+static char	*x_precision(char *str, t_list_printf *list)
 {
 	int		str_len;
 	char	*tmp;
@@ -78,7 +79,6 @@ static char	*x_precision(const char *src, char *str, t_list_printf *list)
 		}
 	}
 	free(dummy);
-	str = x_hashtag(src, str, list);
 	return (str);
 }
 
@@ -91,7 +91,9 @@ void	ft_printf_x(unsigned int unbr, t_list_printf *list, const char *src)
 	else
 		str = ft_utoa_base(unbr, 16, "0123456789ABCDEF");
 	ft_printf_check_flags(list);
-	str = x_precision(src, str, list);
+	str = x_precision(str, list);
+	if (unbr != 0)
+		str = x_hashtag(src, str, list);
 	x_noflag(str, list);
 	list->ret += ft_putstr(str);
 	list->width -= ft_strlen_int(str);

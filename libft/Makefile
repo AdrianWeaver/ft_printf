@@ -6,7 +6,7 @@
 #    By: aweaver <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/23 10:40:46 by aweaver           #+#    #+#              #
-#    Updated: 2022/01/26 08:15:00 by aweaver          ###   ########.fr        #
+#    Updated: 2022/01/26 11:00:09 by aweaver          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -75,7 +75,7 @@ DEPS		=	$(SRCS:.c=.d)
 
 CC			=	gcc
 
-CFLAGS		=	-MMD -Wall -Wextra -Werror
+CFLAGS		=	-g3 -MMD -Wall -Wextra -Werror
 
 all:		$(NAME)
 

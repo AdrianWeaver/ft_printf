@@ -6,7 +6,7 @@
 /*   By: aweaver <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/29 15:40:47 by aweaver           #+#    #+#             */
-/*   Updated: 2022/01/25 17:02:37 by aweaver          ###   ########.fr       */
+/*   Updated: 2022/01/26 08:30:30 by aweaver          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,21 @@
 #include <stddef.h>
 #include <stdio.h>
 #include "libft.h"
+
+static int	ft_count_udigits_base(unsigned int nb, unsigned int base_len)
+{
+	int	digits;
+
+	digits = 1;
+	if (base_len < 1)
+		return (-1);
+	while (nb / base_len > 0)
+	{
+		nb = nb / base_len;
+		digits++;
+	}
+	return (digits);
+}
 
 static int	ft_is_ubase_ok(unsigned int base_len, char *base_format)
 {
@@ -62,7 +77,7 @@ char	*ft_utoa_base(unsigned int n, unsigned int base_len, char *base_format)
 	char	*ret;
 
 	nsave = n;
-	digits = ft_count_digits_base(n, base_len);
+	digits = ft_count_udigits_base(n, base_len);
 	ret = ft_get_ptr(digits, base_len, base_format);
 	if (ret == 0)
 		return (0);
