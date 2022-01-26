@@ -80,7 +80,7 @@ test_x:			all
 				./a.out_x | cat -e
 
 test_X:			all
-				$(CC) -g3 main_X.c -o a.out_X libftprintf.a ./libft/libft.a $(INC)
+				$(CC) -g3 -fsanitize=address main_x.c -o a.out_X libftprintf.a ./libft/libft.a $(INC)
 				./a.out_X | cat -e
 -include $(DEPS)
 
