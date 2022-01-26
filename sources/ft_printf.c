@@ -6,7 +6,7 @@
 /*   By: aweaver <aweaver@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/18 10:02:21 by aweaver           #+#    #+#             */
-/*   Updated: 2022/01/26 15:54:08 by aweaver          ###   ########.fr       */
+/*   Updated: 2022/01/26 18:19:05 by aweaver          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,22 @@ int	ft_printf_conversion(const char *str, t_list_printf *list, va_list params)
 	return (list->ret);
 }
 
+void	ft_check_percent(const char *str, t_list_printf *list, va_list params)
+{
+	if (str[list->i] == '%')
+	{
+		list->i++;
+		ft_printf_parse(str, list);
+		if ((str[list->i] == '%'))
+		{
+			list->ret += ft_putchar('%');
+			list->i++;
+		}
+		else
+			ft_printf_conversion(str, list, params);
+	}
+}
+
 int	ft_printf(const char *str, ...)
 {
 	va_list			params;
@@ -49,18 +65,7 @@ int	ft_printf(const char *str, ...)
 			list.ret++;
 			list.i++;
 		}
-		if (str[list.i] == '%')
-		{
-			list.i++;
-			ft_printf_parse(str, &list);
-			if (!(str[list.i] == '%'))
-			//{
-				//list.ret += ft_putchar('%');
-				//list.i++;
-			//}
-			//else
-				ft_printf_conversion(str, &list, params);
-		}
+		ft_check_percent(str, &list, params);
 	}
 	va_end(params);
 	return (list.ret);
