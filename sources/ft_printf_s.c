@@ -6,7 +6,7 @@
 /*   By: aweaver <aweaver@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 14:59:49 by aweaver           #+#    #+#             */
-/*   Updated: 2022/01/26 15:26:14 by aweaver          ###   ########.fr       */
+/*   Updated: 2022/01/26 16:20:50 by aweaver          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,8 +64,9 @@ static void	s_flag_precision(char *str, t_list_printf *list)
 
 void	ft_printf_s(char *str, t_list_printf *list)
 {
-	if (!str || *str == 0)
+	if (!str)
 	{
+		list->ret += ft_putstr("(null)");
 		list->i++;
 	}
 	else

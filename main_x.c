@@ -6,7 +6,7 @@
 /*   By: aweaver <aweaver@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 16:35:18 by aweaver           #+#    #+#             */
-/*   Updated: 2022/01/26 11:00:33 by aweaver          ###   ########.fr       */
+/*   Updated: 2022/01/26 11:36:14 by aweaver          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,13 @@ int	main(void)
 	int					i;
 	int					total;
 
-	i = 2;
+	i = 0;
 	tab[0] = 42;
 	tab[1] = 2;
 	tab[2] = 0;
 	tab[3] = INT_MAX;
 	tab[4] = UINT_MAX;
-	while (i < 3)
+	while (i < 5)
 	{
 		total = 0;
 		total += printf("01 - vrai printf %%x : %x\n", tab[i]);
