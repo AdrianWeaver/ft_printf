@@ -6,7 +6,7 @@
 /*   By: aweaver <aweaver@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/18 10:10:48 by aweaver           #+#    #+#             */
-/*   Updated: 2022/01/25 13:11:45 by aweaver          ###   ########.fr       */
+/*   Updated: 2022/01/26 15:56:25 by aweaver          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,13 @@ void			ft_printf_u(unsigned int unbr, t_list_printf *list);
 
 # endif
 
+# ifndef FT_PRINTF_ID
+#  define FT_PRINTF_ID
+
+void			ft_printf_id(int unbr, t_list_printf *list);
+
+# endif
+
 # ifndef FT_PRINTF_X
 #  define FT_PRINTF_X
 
@@ -113,7 +120,7 @@ void			ft_printf_uhex(unsigned long int nbr, unsigned long int base,
 # ifndef FT_CHECK_FLAGS
 #  define FT_CHECK_FLAGS
 
-void			ft_printf_check_flags(t_list_printf *list);
+void			ft_printf_check_flags(const char *str, t_list_printf *list);
 
 # endif
 
