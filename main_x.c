@@ -6,7 +6,7 @@
 /*   By: aweaver <aweaver@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 16:35:18 by aweaver           #+#    #+#             */
-/*   Updated: 2022/01/25 17:21:53 by aweaver          ###   ########.fr       */
+/*   Updated: 2022/01/26 10:24:48 by aweaver          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	main(void)
 	tab[2] = 0;
 	tab[3] = INT_MAX;
 	tab[4] = UINT_MAX;
-	while (i < 1)
+	while (i < 5)
 	{
 		total = 0;
 		total += printf("01 - vrai printf %%x : %x\n", tab[i]);
@@ -175,7 +175,7 @@ int	main(void)
 		total += ft_printf("58 - faux printf %%x : %#42.1x\n", tab[i]);
 		total += ft_printf("59 - faux printf %%x : %#42.8x\n", tab[i]);
 		total += ft_printf("60 - faux printf %%x : %#42.42x\n", tab[i]);
-		total += ft_printf("61 - faux printf %%x : %#-0x\n", tab[i]);
+		//total += ft_printf("61 - faux printf %%x : %#-0x\n", tab[i]);
 		//total += ft_printf("62 - faux printf %%x : %#-01x\n", tab[i]);
 		//total += ft_printf("63 - faux printf %%x : %#-042x\n", tab[i]);
 		//total += ft_printf("64 - faux printf %%x : %#-0.x\n", tab[i]);

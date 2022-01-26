@@ -78,6 +78,10 @@ test_U:			all
 test_x:			all
 				$(CC) -g3 main_x.c -o a.out_x libftprintf.a ./libft/libft.a $(INC)
 				./a.out_x | cat -e
+
+test_X:			all
+				$(CC) -g3 main_X.c -o a.out_X libftprintf.a ./libft/libft.a $(INC)
+				./a.out_X | cat -e
 -include $(DEPS)
 
 .PHONY:			all re clean fclean test test_c test_p test_s
