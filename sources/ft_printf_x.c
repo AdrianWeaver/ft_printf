@@ -6,7 +6,7 @@
 /*   By: aweaver <aweaver@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 16:57:00 by aweaver           #+#    #+#             */
-/*   Updated: 2022/01/26 11:33:15 by aweaver          ###   ########.fr       */
+/*   Updated: 2022/01/26 15:58:04 by aweaver          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,6 @@ void	ft_printf_x(unsigned int unbr, t_list_printf *list, const char *src)
 		str = ft_utoa_base(unbr, 16, "0123456789abcdef");
 	else
 		str = ft_utoa_base(unbr, 16, "0123456789ABCDEF");
-	ft_printf_check_flags(list);
 	str = x_precision(str, list);
 	if (unbr != 0)
 		str = x_hashtag(src, str, list);
