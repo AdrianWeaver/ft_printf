@@ -65,7 +65,7 @@ test_p:			all
 				./a.out_p | cat -e
 
 test_s:			all
-				$(CC) main_s.c -o a.out_s libftprintf.a ./libft/libft.a $(INC)
+				$(CC) main2_s.c -o a.out_s libftprintf.a ./libft/libft.a $(INC)
 				./a.out_s | cat -e
 
 test_i:			all
