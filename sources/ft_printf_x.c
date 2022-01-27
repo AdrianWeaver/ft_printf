@@ -6,7 +6,7 @@
 /*   By: aweaver <aweaver@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 16:57:00 by aweaver           #+#    #+#             */
-/*   Updated: 2022/01/26 15:58:04 by aweaver          ###   ########.fr       */
+/*   Updated: 2022/01/27 19:49:00 by aweaver          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,12 @@ static void	x_noflag(char *str, t_list_printf *list)
 	}
 }
 
-static char	*x_hashtag(const char *src, char *str, t_list_printf *list)
+static char	*x_hashtag(const char *src, char *str, t_list_printf *list, unsigned int n)
 {
 	char	*tmp;
 	char	*dummy;
 
-	if (list->flag_hashtag == 1)
+	if (list->flag_hashtag == 1 && n != 0)
 	{
 		dummy = malloc(sizeof(*dummy) * 3);
 		dummy[0] = '0';
@@ -48,12 +48,13 @@ static char	*x_hashtag(const char *src, char *str, t_list_printf *list)
 	return (str);
 }
 
-static char	*x_precision(char *str, t_list_printf *list)
+static char	*x_precision(char *str, t_list_printf *list, unsigned int unbr)
 {
 	int		str_len;
 	char	*tmp;
 	char	*dummy;
 
+	(void)unbr;
 	str_len = ft_strlen_int(str);
 	dummy = ft_strdup("0");
 	if (list->flag_zero == 1 && list->flag_precision != 1)
@@ -90,9 +91,15 @@ void	ft_printf_x(unsigned int unbr, t_list_printf *list, const char *src)
 		str = ft_utoa_base(unbr, 16, "0123456789abcdef");
 	else
 		str = ft_utoa_base(unbr, 16, "0123456789ABCDEF");
-	str = x_precision(str, list);
+	str = x_precision(str, list, unbr);
+	if (list->flag_precision == 1 && list->precision_width <= 0 && unbr == 0
+		&& list->flag_hashtag == 0)
+	{
+		free(str);
+		str = ft_strdup("");
+	}
 	if (unbr != 0)
-		str = x_hashtag(src, str, list);
+		str = x_hashtag(src, str, list, unbr);
 	x_noflag(str, list);
 	list->ret += ft_putstr(str);
 	list->width -= ft_strlen_int(str);
