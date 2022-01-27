@@ -6,7 +6,7 @@
 /*   By: aweaver <aweaver@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 16:57:00 by aweaver           #+#    #+#             */
-/*   Updated: 2022/01/27 19:49:00 by aweaver          ###   ########.fr       */
+/*   Updated: 2022/01/27 21:09:50 by aweaver          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,8 @@ static void	x_noflag(char *str, t_list_printf *list)
 	}
 }
 
-static char	*x_hashtag(const char *src, char *str, t_list_printf *list, unsigned int n)
+static char	*x_hashtag(const char *src, char *str, t_list_printf *list,
+		unsigned int n)
 {
 	char	*tmp;
 	char	*dummy;
@@ -48,13 +49,30 @@ static char	*x_hashtag(const char *src, char *str, t_list_printf *list, unsigned
 	return (str);
 }
 
-static char	*x_precision(char *str, t_list_printf *list, unsigned int unbr)
+static char	*x_make_magic(char *str, t_list_printf *list, int str_len,
+		char *dummy)
+{
+	char	*tmp;
+
+	if (list->flag_precision == 1)
+	{
+		while (str_len < list->precision_width)
+		{
+			tmp = ft_strjoin(dummy, str);
+			free(str);
+			str = tmp;
+			str_len++;
+		}
+	}
+	return (str);
+}
+
+static char	*x_precision(char *str, t_list_printf *list)
 {
 	int		str_len;
 	char	*tmp;
 	char	*dummy;
 
-	(void)unbr;
 	str_len = ft_strlen_int(str);
 	dummy = ft_strdup("0");
 	if (list->flag_zero == 1 && list->flag_precision != 1)
@@ -69,16 +87,7 @@ static char	*x_precision(char *str, t_list_printf *list, unsigned int unbr)
 			str_len++;
 		}
 	}
-	if (list->flag_precision == 1)
-	{
-		while (str_len < list->precision_width)
-		{
-			tmp = ft_strjoin(dummy, str);
-			free(str);
-			str = tmp;
-			str_len++;
-		}
-	}
+	str = x_make_magic(str, list, str_len, dummy);
 	free(dummy);
 	return (str);
 }
@@ -91,7 +100,7 @@ void	ft_printf_x(unsigned int unbr, t_list_printf *list, const char *src)
 		str = ft_utoa_base(unbr, 16, "0123456789abcdef");
 	else
 		str = ft_utoa_base(unbr, 16, "0123456789ABCDEF");
-	str = x_precision(str, list, unbr);
+	str = x_precision(str, list);
 	if (list->flag_precision == 1 && list->precision_width <= 0 && unbr == 0
 		&& list->flag_hashtag == 0)
 	{
