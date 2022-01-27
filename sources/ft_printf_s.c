@@ -6,7 +6,7 @@
 /*   By: aweaver <aweaver@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 14:59:49 by aweaver           #+#    #+#             */
-/*   Updated: 2022/01/27 12:15:09 by aweaver          ###   ########.fr       */
+/*   Updated: 2022/01/27 15:30:20 by aweaver          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static void	s_noflag_width(char *str, t_list_printf *list)
 {
 	int	str_len;
 
-	if (list->flag_hyphen == 0 && list->width > 1)
+	if (list->flag_hyphen == 0 && list->width > 0)
 	{
 		if (list->flag_precision == 1)
 		{
@@ -29,7 +29,7 @@ static void	s_noflag_width(char *str, t_list_printf *list)
 		}
 		else
 			str_len = ft_strlen_int(str);
-		while (list->width > str_len)
+		while ((*str == 0 && list->width > 0) || (list->width > str_len))
 		{
 			list->ret += ft_putchar(' ');
 			list->width--;
@@ -67,11 +67,21 @@ void	ft_printf_s(char *str, t_list_printf *list)
 	if (!str)
 	{
 		s_noflag_width("(null)", list);
+		if (list->flag_hyphen == 0 && list->width > 1 && !str)
+		{
+			list->ret += ft_putchar(' ');
+			list->width++;
+		}
 		if (list->flag_precision == 1 && list->precision_width >= 6)
+		{
 			list->ret += ft_putstr("(null)");
+			list->width -= 6;
+		}
 		else if (list->flag_precision == 0)
+		{
 			list->ret += ft_putstr("(null)");
-		list->width -= 6;
+			list->width -= 6;
+		}
 		ft_flag_hyphen(list);
 		list->i++;
 	}
