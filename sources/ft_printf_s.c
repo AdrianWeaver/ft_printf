@@ -6,7 +6,7 @@
 /*   By: aweaver <aweaver@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 14:59:49 by aweaver           #+#    #+#             */
-/*   Updated: 2022/01/27 12:05:24 by aweaver          ###   ########.fr       */
+/*   Updated: 2022/01/27 12:15:09 by aweaver          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,10 @@ void	ft_printf_s(char *str, t_list_printf *list)
 	if (!str)
 	{
 		s_noflag_width("(null)", list);
-		list->ret += ft_putstr("(null)");
+		if (list->flag_precision == 1 && list->precision_width >= 6)
+			list->ret += ft_putstr("(null)");
+		else if (list->flag_precision == 0)
+			list->ret += ft_putstr("(null)");
 		list->width -= 6;
 		ft_flag_hyphen(list);
 		list->i++;
