@@ -6,7 +6,7 @@
 /*   By: aweaver <aweaver@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/18 10:02:21 by aweaver           #+#    #+#             */
-/*   Updated: 2022/01/26 18:19:05 by aweaver          ###   ########.fr       */
+/*   Updated: 2022/02/07 12:24:14 by aweaver          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,17 +18,17 @@ int	ft_printf_conversion(const char *str, t_list_printf *list, va_list params)
 {
 	if (str[list->i] == 'c')
 		ft_printf_c(va_arg(params, int), list);
-	if (str[list->i] == 's')
+	else if (str[list->i] == 's')
 		ft_printf_s(va_arg(params, char *), list);
-	if (str[list->i] == 'i' || str[list->i] == 'd')
+	else if (str[list->i] == 'i' || str[list->i] == 'd')
 		ft_printf_id(va_arg(params, int), list);
-	if (str[list->i] == 'u')
+	else if (str[list->i] == 'u')
 		ft_printf_u(va_arg(params, unsigned int), list);
-	if (str[list->i] == 'p')
+	else if (str[list->i] == 'p')
 		ft_printf_p(va_arg(params, unsigned long int), list);
-	if (str[list->i] == 'x')
+	else if (str[list->i] == 'x')
 		ft_printf_x(va_arg(params, unsigned int), list, str);
-	if (str[list->i] == 'X')
+	else if (str[list->i] == 'X')
 		ft_printf_x(va_arg(params, unsigned int), list, str);
 	return (list->ret);
 }
