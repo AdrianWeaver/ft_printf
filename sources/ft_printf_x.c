@@ -6,7 +6,7 @@
 /*   By: aweaver <aweaver@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 16:57:00 by aweaver           #+#    #+#             */
-/*   Updated: 2022/01/27 21:09:50 by aweaver          ###   ########.fr       */
+/*   Updated: 2022/02/07 17:57:01 by aweaver          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ static char	*x_make_magic(char *str, t_list_printf *list, int str_len,
 	return (str);
 }
 
-static char	*x_precision(char *str, t_list_printf *list)
+static char	*x_precision(char *str, t_list_printf *list, unsigned int unbr)
 {
 	int		str_len;
 	char	*tmp;
@@ -77,7 +77,7 @@ static char	*x_precision(char *str, t_list_printf *list)
 	dummy = ft_strdup("0");
 	if (list->flag_zero == 1 && list->flag_precision != 1)
 	{
-		if (list->flag_hashtag == 1)
+		if (list->flag_hashtag == 1 && unbr != 0)
 			str_len += 2;
 		while (str_len < list->width)
 		{
@@ -100,7 +100,7 @@ void	ft_printf_x(unsigned int unbr, t_list_printf *list, const char *src)
 		str = ft_utoa_base(unbr, 16, "0123456789abcdef");
 	else
 		str = ft_utoa_base(unbr, 16, "0123456789ABCDEF");
-	str = x_precision(str, list);
+	str = x_precision(str, list, unbr);
 	if (list->flag_precision == 1 && list->precision_width <= 0 && unbr == 0
 		&& list->flag_hashtag == 0)
 	{
