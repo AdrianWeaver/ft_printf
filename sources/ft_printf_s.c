@@ -6,7 +6,7 @@
 /*   By: aweaver <aweaver@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 14:59:49 by aweaver           #+#    #+#             */
-/*   Updated: 2022/01/27 16:45:57 by aweaver          ###   ########.fr       */
+/*   Updated: 2022/02/07 12:27:22 by aweaver          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,9 +93,9 @@ void	ft_printf_s(char *str, t_list_printf *list)
 {
 	char	*null_str;
 
-	null_str = ft_strdup("(null)");
 	if (!str)
 	{
+		null_str = ft_strdup("(null)");
 		s_nullstring(null_str, list);
 		list->i++;
 	}
