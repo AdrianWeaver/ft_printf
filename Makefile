@@ -24,7 +24,7 @@ OBJS			=	$(addprefix $(OBJS_PATH),$(SRCS:.c=.o))
 
 CC				=	gcc
 
-CFLAGS			=	-g3 -MMD -Wall -Wextra -Werror $(INC)
+CFLAGS			=	-MMD -Wall -Wextra -Werror $(INC)
 
 INC				=	-I ./includes -I ./libft
 
@@ -52,32 +52,6 @@ fclean:			clean
 				$(MAKE) -C $(LIBFT_PATH) fclean
 				
 re:				fclean all
-
-test:			all
-				$(CC) main.c libftprintf.a ./libft/libft.a $(INC) && ./a.out | cat -e
-
-test_c:			all
-				$(CC) main_c.c -o a.out_c libftprintf.a ./libft/libft.a $(INC)
-				./a.out_c | cat -e
-
-test_p:			all
-				$(CC) main_p.c -o a.out_p libftprintf.a ./libft/libft.a $(INC)
-				./a.out_p | cat -e
-
-test_s:			all
-				$(CC) main2_s.c -o a.out_s libftprintf.a ./libft/libft.a $(INC)
-				./a.out_s | cat -e
-
-test_i:			all
-				$(CC) main_id.c -o a.out_id libftprintf.a ./libft/libft.a $(INC)
-				./a.out_id | cat -e
-test_u:			all
-				$(CC) main_u.c -o a.out_u libftprintf.a ./libft/libft.a $(INC)
-				./a.out_u | cat -e
-
-test_x:			all
-				$(CC) -g3 main_x.c -o a.out_x libftprintf.a ./libft/libft.a $(INC)
-				./a.out_x | cat -e
 
 -include $(DEPS)
 
