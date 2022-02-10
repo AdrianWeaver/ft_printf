@@ -14,6 +14,7 @@ SRCS				=	ft_lstreset.c				\
 						ft_printf_p.c				\
 						ft_printf_u.c				\
 						ft_printf_x.c				\
+						ft_printf_o.c				\
 						ft_printf_id.c				\
 						ft_flag_hyphen.c			\
 						ft_printf_check_flags.c		\
@@ -36,6 +37,8 @@ $(NAME):		$(OBJS) $(LIBFT)
 				cp -p $(LIBFT) $(NAME)
 				ar -rcs $(NAME) $(OBJS) 
 
+bonus:			$(NAME)
+
 $(LIBFT):		
 				$(MAKE) -C $(LIBFT_PATH) all
 
@@ -45,6 +48,7 @@ $(OBJS_PATH)%.o:			$(SRCS_PATH)%.c
 
 clean:
 				rm -f $(OBJS) $(DEPS)
+				rmdir $(OBJS_PATH)
 				$(MAKE) -C $(LIBFT_PATH) clean
 
 fclean:			clean

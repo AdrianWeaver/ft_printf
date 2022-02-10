@@ -6,7 +6,7 @@
 /*   By: aweaver <aweaver@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/18 10:10:48 by aweaver           #+#    #+#             */
-/*   Updated: 2022/01/26 18:15:48 by aweaver          ###   ########.fr       */
+/*   Updated: 2022/02/08 10:32:47 by aweaver          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,11 @@
 # endif
 
 # ifndef CONVERSION
-#  define CONVERSION "cspdiuxX%"
+#  define CONVERSION "cspdiuoxX%"
+# endif
+
+# ifndef NOTINSUBJECT
+#  define NOTINSUBJECT "hlLqjzZteEfFgGaACSPnm"
 # endif
 
 typedef struct s_list_printf
@@ -96,6 +100,14 @@ void			ft_printf_x(unsigned int unbr, t_list_printf *list,
 
 # endif
 
+# ifndef FT_PRINTF_O
+#  define FT_PRINTF_O
+
+void			ft_printf_o(unsigned int unbr, t_list_printf *list,
+					const char *src);
+
+# endif
+
 # ifndef FT_PRINTF_PUTNBR
 #  define FT_PRINTF_PUTNBR
 
@@ -127,7 +139,9 @@ void			ft_printf_check_flags(t_list_printf *list);
 # ifndef FT_PRINTF_PARSE
 #  define FT_PRINTF_PARSE
 
-void			ft_printf_parse(const char *str, t_list_printf *list);
+void			ft_printf_parse(const char *str, t_list_printf *list,
+					va_list params);
+
 # endif
 
 # ifndef FT_LSTRESET

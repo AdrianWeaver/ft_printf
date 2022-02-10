@@ -6,14 +6,14 @@
 /*   By: aweaver <aweaver@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/14 20:21:31 by aweaver           #+#    #+#             */
-/*   Updated: 2022/01/14 20:21:32 by aweaver          ###   ########.fr       */
+/*   Updated: 2022/02/07 19:05:06 by aweaver          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /* the purpose of this function is to count the length of a number
  * then return it */
 
-int	ft_count_digit(long int nb)
+int	ft_count_digits(long int nb)
 {
 	int	digits;
 
