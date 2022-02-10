@@ -6,13 +6,12 @@
 /*   By: aweaver <aweaver@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 16:57:00 by aweaver           #+#    #+#             */
-/*   Updated: 2022/02/08 12:34:17 by aweaver          ###   ########.fr       */
+/*   Updated: 2022/02/10 14:15:18 by aweaver          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 #include "libft.h"
-#include <stdio.h>
 
 static void	x_noflag(char *str, t_list_printf *list, unsigned int unbr)
 {

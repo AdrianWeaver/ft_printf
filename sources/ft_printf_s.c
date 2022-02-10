@@ -6,13 +6,12 @@
 /*   By: aweaver <aweaver@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 14:59:49 by aweaver           #+#    #+#             */
-/*   Updated: 2022/02/07 12:27:22 by aweaver          ###   ########.fr       */
+/*   Updated: 2022/02/10 14:15:02 by aweaver          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 #include "libft.h"
-#include <stdio.h>
 
 static void	s_noflag_width(char *str, t_list_printf *list)
 {
@@ -82,8 +81,8 @@ static void	s_nullstring(char *str, t_list_printf *list)
 	}
 	else if (list->flag_precision == 0)
 	{
-			list->ret += ft_putstr(str);
-			list->width -= 6;
+		list->ret += ft_putstr(str);
+		list->width -= 6;
 	}
 	ft_flag_hyphen(list);
 	free(str);
