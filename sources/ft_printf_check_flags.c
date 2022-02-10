@@ -6,7 +6,7 @@
 /*   By: aweaver <aweaver@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/25 13:11:29 by aweaver           #+#    #+#             */
-/*   Updated: 2022/01/26 18:15:25 by aweaver          ###   ########.fr       */
+/*   Updated: 2022/02/08 12:34:28 by aweaver          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,13 @@
 
 void	ft_printf_check_flags(t_list_printf *list)
 {
+	if (list->width < 0)
+	{
+		list->flag_hyphen = 1;
+		list->width = -(list->width);
+	}
+	if (list->precision_width < 0)
+		list->flag_precision = 0;
 	if (list->flag_zero == 1 && list->flag_hyphen == 1)
 		list->flag_zero = 0;
 	if (list->flag_zero == 1 && list->flag_precision == 1)
