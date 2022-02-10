@@ -6,7 +6,7 @@
 /*   By: aweaver <aweaver@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 14:59:49 by aweaver           #+#    #+#             */
-/*   Updated: 2022/02/10 14:15:02 by aweaver          ###   ########.fr       */
+/*   Updated: 2022/02/10 14:47:30 by aweaver          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,22 +61,23 @@ static void	s_flag_precision(char *str, t_list_printf *list)
 	}
 }
 
-static void	s_nullstring(char *str, t_list_printf *list)
+static void	s_nullstring(char *str, t_list_printf *list, int i)
 {
 	while ((list->width > 6 && list->flag_hyphen == 0) || (list->width > 0
 			&& list->flag_hyphen == 0 && list->flag_precision == 1
-			&& list->precision_width < 6))
+			&& (list->width > list->precision_width || list->width > 6)))
 	{
 		list->ret += ft_putchar(' ');
 		list->width--;
 	}
 	if (list->flag_precision == 1)
 	{
-		if (list->precision_width >= 6)
+		while (list->precision_width > 0 && str[i])
 		{
-			list->ret += ft_putstr(str);
-			list->precision_width -= 6;
-			list->width -= 6;
+			list->ret += ft_putchar(str[i]);
+			i++;
+			list->precision_width--;
+			list->width--;
 		}
 	}
 	else if (list->flag_precision == 0)
@@ -91,11 +92,13 @@ static void	s_nullstring(char *str, t_list_printf *list)
 void	ft_printf_s(char *str, t_list_printf *list)
 {
 	char	*null_str;
+	int		count;
 
+	count = 0;
 	if (!str)
 	{
 		null_str = ft_strdup("(null)");
-		s_nullstring(null_str, list);
+		s_nullstring(null_str, list, count);
 		list->i++;
 	}
 	else
