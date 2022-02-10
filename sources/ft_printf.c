@@ -6,7 +6,7 @@
 /*   By: aweaver <aweaver@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/18 10:02:21 by aweaver           #+#    #+#             */
-/*   Updated: 2022/02/08 10:31:26 by aweaver          ###   ########.fr       */
+/*   Updated: 2022/02/10 14:57:43 by aweaver          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,21 @@ int	ft_printf_conversion(const char *str, t_list_printf *list, va_list params)
 	return (list->ret);
 }
 
+static void	ft_percent_flag(t_list_printf *list)
+{
+	while (list->flag_zero == 0 && list->flag_hyphen == 0
+		&& list->width > 1)
+	{
+		list->ret += ft_putchar(' ');
+		list->width--;
+	}
+	while (list->flag_zero == 1 && list->width > 1)
+	{
+		list->ret += ft_putchar('0');
+		list->width--;
+	}
+}
+
 void	ft_check_percent(const char *str, t_list_printf *list, va_list params)
 {
 	if (str[list->i] == '%')
@@ -43,7 +58,10 @@ void	ft_check_percent(const char *str, t_list_printf *list, va_list params)
 		ft_printf_parse(str, list, params);
 		if ((str[list->i] == '%'))
 		{
+			ft_percent_flag(list);
 			list->ret += ft_putchar('%');
+			list->width--;
+			ft_flag_hyphen(list);
 			list->i++;
 		}
 		else
