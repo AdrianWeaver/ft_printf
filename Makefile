@@ -48,7 +48,7 @@ $(OBJS_PATH)%.o:			$(SRCS_PATH)%.c
 
 clean:
 				rm -f $(OBJS) $(DEPS)
-				rmdir $(OBJS_PATH)
+				rm -rf $(OBJS_PATH)
 				$(MAKE) -C $(LIBFT_PATH) clean
 
 fclean:			clean
