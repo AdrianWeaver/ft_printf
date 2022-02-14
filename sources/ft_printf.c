@@ -6,7 +6,7 @@
 /*   By: aweaver <aweaver@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/18 10:02:21 by aweaver           #+#    #+#             */
-/*   Updated: 2022/02/14 11:51:39 by aweaver          ###   ########.fr       */
+/*   Updated: 2022/02/14 13:02:42 by aweaver          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,8 @@ void	ft_check_percent(const char *str, t_list_printf *list, va_list params)
 			ft_percent_flag(list);
 			list->ret += ft_putchar('%');
 			list->width--;
-			ft_flag_hyphen(list);
+			if (PTR_NULL[0] == '0')
+				ft_flag_hyphen(list);
 			list->i++;
 		}
 		else
