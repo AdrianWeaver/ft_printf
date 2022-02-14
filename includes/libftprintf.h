@@ -6,7 +6,7 @@
 /*   By: aweaver <aweaver@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/18 10:10:48 by aweaver           #+#    #+#             */
-/*   Updated: 2022/02/08 10:32:47 by aweaver          ###   ########.fr       */
+/*   Updated: 2022/02/14 11:07:01 by aweaver          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,11 @@
 
 # ifndef CONVERSION
 #  define CONVERSION "cspdiuoxX%"
+# endif
+
+# ifndef FLAG
+#  define FLAG "0-+ #"
+
 # endif
 
 # ifndef NOTINSUBJECT
