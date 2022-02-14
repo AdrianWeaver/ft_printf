@@ -58,4 +58,4 @@ re:				fclean all
 
 -include $(DEPS)
 
-.PHONY:			all re clean fclean test test_c test_p test_s
+.PHONY:			all re clean fclean
