@@ -6,7 +6,7 @@
 /*   By: aweaver <aweaver@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/18 10:02:21 by aweaver           #+#    #+#             */
-/*   Updated: 2022/02/10 14:57:43 by aweaver          ###   ########.fr       */
+/*   Updated: 2022/02/14 11:51:39 by aweaver          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,16 +37,19 @@ int	ft_printf_conversion(const char *str, t_list_printf *list, va_list params)
 
 static void	ft_percent_flag(t_list_printf *list)
 {
-	while (list->flag_zero == 0 && list->flag_hyphen == 0
-		&& list->width > 1)
+	if (PTR_NULL[0] == '0')
 	{
-		list->ret += ft_putchar(' ');
-		list->width--;
-	}
-	while (list->flag_zero == 1 && list->width > 1)
-	{
-		list->ret += ft_putchar('0');
-		list->width--;
+		while (list->flag_zero == 0 && list->flag_hyphen == 0
+			&& list->width > 1)
+		{
+			list->ret += ft_putchar(' ');
+			list->width--;
+		}
+		while (list->flag_zero == 1 && list->width > 1)
+		{
+			list->ret += ft_putchar('0');
+			list->width--;
+		}
 	}
 }
 
